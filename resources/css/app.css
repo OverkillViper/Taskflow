@@ -82,3 +82,8 @@
 .p-metergroup-label-list {
     display: none !important;
 }
+
+.p-checkbox-checked {
+    background-color: #252525;
+    border-radius: 5px;
+}

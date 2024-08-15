@@ -28,7 +28,18 @@ class SubTaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|string',
+            'task_id' => 'required',
+        ]);
+
+        $newSubTask = SubTask::create($data);
+
+        if($newSubTask) {
+            return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully created subordinate task']);
+        } else {
+            return redirect()->back()->with(['status' => 'error', 'message' => 'Error creating subordinate task']);
+        }
     }
 
     /**
@@ -50,9 +61,19 @@ class SubTaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SubTask $subTask)
+    public function update(Request $request, SubTask $subtask)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|string',
+        ]);
+
+        $updatedSubtask = $subtask->update($data);
+
+        if($updatedSubtask) {
+            return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully created subordinate task']);
+        } else {
+            return redirect()->back()->with(['status' => 'error', 'message' => 'Error creating subordinate task']);
+        }
     }
 
     /**

@@ -103,4 +103,16 @@ class TaskController extends Controller
     {
         //
     }
+
+    public function toggleTaskStatus(Task $task) {
+        $updatedTask = $task->update([
+            'completed' => !$task->completed,
+        ]);
+
+        if($updatedTask) {
+            return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully updated task status']);
+        } else {
+            return redirect()->back()->with(['status' => 'error', 'message' => 'Error updating task status']);
+        }
+    }
 }

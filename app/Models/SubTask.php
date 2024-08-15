@@ -9,7 +9,7 @@ class SubTask extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'task_id', 'is_completed'];
+    protected $fillable = ['title', 'task_id', 'completed'];
 
     // Relationships
     public function task()
