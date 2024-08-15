@@ -24,7 +24,7 @@ class Task extends Model
 
     public function subTasks()
     {
-        return $this->hasMany(SubTask::class);
+        return $this->hasMany(SubTask::class)->orderBy('created_at', 'desc');
     }
 
     public function getSubTaskCountAttribute()

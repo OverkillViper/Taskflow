@@ -12,7 +12,7 @@ const props = defineProps({
 
 const subtaskForm = useForm({
     title       : props.subtask.title,
-    completed   : props.subtask.completed,
+    completed   : (props.subtask.completed === 1),
 });
 
 const updateSubtaskForm = () => {
@@ -20,11 +20,17 @@ const updateSubtaskForm = () => {
     editing.value = false;
 }
 
+const changeStatus = () => {
+    console.log(subtaskForm.completed);
+    
+    subtaskForm.put(route('tasks.subtasks.status.change', props.subtask.id));
+}
+
 </script>
 
 <template>
     <form @submit.prevent class="flex items-center p-2 border border-transparent hover:border-gray-200 hover:bg-white rounded-md gap-x-4 h-12">
-        <Checkbox v-model="subtaskForm.completed" binary variant="filled" :disabled="editing"/>
+        <Checkbox v-model="subtaskForm.completed" binary variant="filled" :disabled="editing" @update:model-value="changeStatus"/>
         <InputText v-model="subtaskForm.title" variant="filled" size="small" class="flex-grow text-sm font-medium" v-if="editing"/>
         <div class="ps-3 flex-grow font-medium items-center text-sm" v-else>
             {{ subtask.title }}

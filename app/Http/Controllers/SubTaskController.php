@@ -83,4 +83,19 @@ class SubTaskController extends Controller
     {
         //
     }
+
+    public function toggleSubTaskStatus(Request $request, SubTask $subtask) {
+
+        // dd($request);
+
+        $updatedSubtask = $subtask->update([
+            'completed' => $request->completed,
+        ]);
+
+        if($updatedSubtask) {
+            return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully changed subordinate task status']);
+        } else {
+            return redirect()->back()->with(['status' => 'error', 'message' => 'Error changing subordinate task status']);
+        }
+    }
 }

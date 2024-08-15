@@ -96,7 +96,7 @@ const createNewSubTask = () => {
                 </div>
             </div>
             <div>
-                <Link :href="route('tasks.status.change', task.id)" method="post" as="button">
+                <Link :href="route('tasks.status.change', task.id)" method="put" as="button" class="select-none">
                     <Button :label="task.completed ? 'Mark pending' : 'Mark completed'" :icon="task.completed ? 'hourglass' : 'check-circle'" :class="task.completed ? 'bg-gray-500' : 'bg-green-500'"/>
                 </Link>
             </div>
