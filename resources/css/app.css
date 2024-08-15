@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'CriqueGrotesk Light';
+        src: url('CriqueGrotesk-Thin.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'CriqueGrotesk Regular';
+        src: url('CriqueGrotesk-Light.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'CriqueGrotesk Medium';
+        src: url('CriqueGrotesk.ttf') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'CriqueGrotesk SemiBold';
+        src: url('CriqueGrotesk-Medium.ttf') format('truetype');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'CriqueGrotesk Bold';
+        src: url('CriqueGrotesk-Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+    }
+}
+
+.p-colorpicker-preview {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+}
+
+.p-tooltip-text {
+    @apply text-sm font-semibold;
+}
+
+.p-datepicker-input-icon-container {
+    margin-top: calc(-1.4 * (var(--p-icon-size) / 2)) !important;
+}
+
+.p-datepicker .p-inputtext {
+    padding: 0.5rem .7rem !important;
+    @apply text-sm;
+}
+
+.p-select-label {
+    @apply text-sm;
+}
+
+.p-select-header .p-iconfield .p-inputtext {
+    @apply text-sm;
+}
+
+.p-select-option {
+    @apply text-sm font-medium;
+}
+
+.p-datepicker-day-selected {
+    color: #734efc !important;
+    font-weight: 500;
+}
+
+.p-metergroup-label-list {
+    display: none !important;
+}

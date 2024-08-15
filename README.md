@@ -1,2 +1,2 @@
 # Taskflow
- Task management application based on Laravel and VueJS
+ Task Management App using Laravel and Vue JS
