@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SubTask;
 use App\Models\Task;
 use App\Models\Tag;
+use App\Models\TaskTag;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Inertia\Inertia;
@@ -71,6 +72,8 @@ class TaskController extends Controller
 
         $tags = Tag::all();
 
+        $taskTags = TaskTag::where('task_id', '=', $task->id)->with('tag')->get();
+
         $context = [
             'task' => $task->loadCount(['subTasks as sub_tasks_count', 'subTasks as completed_subtasks_count' => function($query) {
                 $query->where('completed', true);
@@ -80,6 +83,7 @@ class TaskController extends Controller
             'subTasksCount'          => $task->sub_tasks_count,
             'completedSubTasksCount' => $task->completed_subtasks_count,
             'tags'                   => $tags,
+            'taskTags'               => $taskTags,
         ];
 
         return Inertia::render('Tasks/TaskDetails', $context);
@@ -204,14 +208,34 @@ class TaskController extends Controller
     }
 
     public function addTagToTask(Request $request, Task $task) {
+        
+        // $tags
+
         $tags = $request->tags;
 
-        if(sizeof($tags)) {
-            foreach ($tags as $tag) {
-                # code...
+        foreach ($tags as $tag) {
+            if (!TaskTag::where('tag_id', $tag['id'])->exists()) {
+                $newTaskTag = TaskTag::create([
+                    'task_id' => $task->id,
+                    'tag_id'  => $tag['id'],
+                ]);
+
+                if($newTaskTag == null) {
+                    return redirect()->back()->with(['status' => 'error', 'message' => 'Error assigning tag']);
+                }
             }
         }
 
-        return redirect()->back()->with(['status' => 'error', 'message' => 'Error updating task status']);
+        return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully assigned tags']);
+    }
+
+    public function removeTagFromTask(TaskTag $tasktag) {
+        $deletedTaskTag = $tasktag->delete();
+
+        if($deletedTaskTag) {
+            return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully removed tag']);
+        } else {
+            return redirect()->back()->with(['status' => 'error', 'message' => 'Error removing tag']);
+        }
     }
 }

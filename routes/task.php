@@ -16,4 +16,5 @@ Route::put('tasks/{task}/change-status',             [TaskController::class,    
 Route::put('tasks/subtasks/{subtask}/change-status', [SubTaskController::class, 'toggleSubTaskStatus'])->name('tasks.subtasks.status.change');
 
 Route::post('tasks/{task}/tags/add',                 [TaskController::class,    'addTagToTask'])->name('tasks.tag.add');
+Route::delete('tasks/tags/{tasktag}/remove',         [TaskController::class,    'removeTagFromTask'])->name('tasks.tag.remove');
 // });

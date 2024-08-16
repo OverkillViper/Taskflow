@@ -11,10 +11,12 @@ import MeterGroup from 'primevue/metergroup';
 import EditTaskDialog from './EditTaskDialog.vue';
 import DeleteTaskDialog from './DeleteTaskDialog.vue';
 import MultiSelect from 'primevue/multiselect';
+import TaskTagCard from '../Tags/TaskTagCard.vue';
 
 const props = defineProps({
-    task : Object,
-    tags : Array,
+    task     : Object,
+    tags     : Array,
+    taskTags : Array,
 });
 
 const daysRemainingLabel = ref('');
@@ -138,6 +140,9 @@ const addTags = () => {
             <Button icon="plus" label="add" type="submit"/>
         </form>
 
+        <div class="flex items-center gap-4 mt-4">
+            <TaskTagCard v-for="taskTag in taskTags" :key="taskTag.id" :taskTag="taskTag" compact/>
+        </div>
 
         <hr class="my-6">
 
