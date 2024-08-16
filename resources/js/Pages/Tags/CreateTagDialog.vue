@@ -14,7 +14,7 @@ const createTagForm = useForm({
 const createNewTag = () => {
     createTagForm.post(route('tags.store'), {
         onFinish: () => {
-            createTagForm.reset();
+            createTagForm.name = '';
             visible.value = false;
         },
     });
@@ -38,7 +38,7 @@ const createNewTag = () => {
             </template>
 
             <form @submit.prevent class="flex items-center gap-x-4">
-                <InputText type="text" v-model="createTagForm.name" placeholder="Tag name" variant="filled" class="flex-grow" @keyup.enter="createNewTag"/>
+                <InputText type="text" v-model="createTagForm.name" placeholder="Tag name" variant="filled" class="flex-grow" @keyup.enter="createNewTag" autofocus/>
             </form>
 
             <template #footer>

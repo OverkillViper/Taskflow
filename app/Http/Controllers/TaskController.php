@@ -204,6 +204,14 @@ class TaskController extends Controller
     }
 
     public function addTagToTask(Request $request, Task $task) {
-        dd($request->tags);
+        $tags = $request->tags;
+
+        if(sizeof($tags)) {
+            foreach ($tags as $tag) {
+                # code...
+            }
+        }
+
+        return redirect()->back()->with(['status' => 'error', 'message' => 'Error updating task status']);
     }
 }

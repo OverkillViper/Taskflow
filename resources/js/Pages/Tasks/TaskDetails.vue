@@ -134,7 +134,7 @@ const addTags = () => {
 
         <form @submit.prevent="addTags" class="flex items-center">
             <div class="text-sm uppercase font-semibold flex-grow">Tags</div>
-            <MultiSelect class="text-sm max-w-1/2 me-2" :options="tags" v-model="taskTagsForm.tags" display="chip" optionLabel="name" filter placeholder="Add a tag"/>
+            <MultiSelect class="text-sm w-1/2 me-2" :options="tags" v-model="taskTagsForm.tags" display="chip" optionLabel="name" filter placeholder="Add a tag"/>
             <Button icon="plus" label="add" type="submit"/>
         </form>
 
