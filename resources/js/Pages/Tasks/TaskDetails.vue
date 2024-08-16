@@ -3,10 +3,13 @@ import CoreLayout from '@/Layouts/CoreLayout.vue';
 import Button from '@/Components/TaskflowComponents/Button.vue';
 import InputText from 'primevue/inputtext';
 import { parseISO, differenceInDays } from 'date-fns';
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { Link, useForm } from '@inertiajs/vue3';
 import SubTaskCard from './SubTaskCard.vue';
 import NoRecordMessage from '@/Pages/Dashboard/NoRecordMessage.vue';
+import MeterGroup from 'primevue/metergroup';
+import EditTaskDialog from './EditTaskDialog.vue';
+import DeleteTaskDialog from './DeleteTaskDialog.vue';
 
 const props = defineProps({
     task : Object
@@ -27,6 +30,11 @@ const daysRemaining = computed(() => {
     } else {
         return `${Math.abs(roundedDays)} day${Math.abs(roundedDays) > 1 ? 's' : ''} overdue`;
     }
+});
+
+const meterValue = computed(() => {
+    const taskCompleted = (props.task.completed_subtasks_count * 100) / props.task.sub_tasks_count || 0;
+    return [{ label: 'Task completed', value: taskCompleted, color: '#252525' }];
 });
 
 const createSubTaskForm = useForm({
@@ -51,8 +59,8 @@ const createNewSubTask = () => {
             <div class="text-xl 2xl:text-2xl font-semibold flex-grow">
                 {{ task.title }}
             </div>
-            <Button label="Edit" icon="pencil"/>
-            <Button label="Delete" icon="trash"/>
+            <EditTaskDialog :task="task"/>
+            <DeleteTaskDialog :task="task"/>
         </div>
 
         <div class="my-6 w-40 select-none">
@@ -68,14 +76,14 @@ const createNewSubTask = () => {
         
         <div class="flex mt-8 justify-between items-end">
             <div>
-                <div class="flex items-center" v-if="task.task_group_id">
+                <Link :href="route('groups.show', task.task_group.id)" class="flex items-center rounded-xl hover:bg-white border p-1 bg-gray-100 transition" v-if="task.task_group_id">
                     <span class="w-7 h-7 flex justify-center items-center text-sm font-semibold text-white rounded-lg" :style="{ backgroundColor: '#' + task.task_group.color }">
                         {{ task.task_group.title[0] }}
                     </span>
                     <span class="text-sm text-gray-600 ms-2 font-medium">
                         {{ task.task_group.title }}
                     </span>
-                </div>
+                </Link>
         
                 <div class="flex items-center" v-else>
                     <span class="w-7 h-7 flex justify-center items-center text-sm font-semibold text-white rounded-lg bg-gray-700">
@@ -110,7 +118,9 @@ const createNewSubTask = () => {
             <Button label="Add" icon="plus" type="submit"/>
         </form>
 
-        <div class="mt-6" v-if="task.sub_tasks.length != 0">
+        <div v-if="task.sub_tasks.length != 0">
+            <MeterGroup :value="meterValue" class="my-6"/>
+
             <SubTaskCard v-for="subtask in task.sub_tasks" :key="subtask.id" :subtask="subtask"/>
         </div>
         <div class="mt-6" v-else>

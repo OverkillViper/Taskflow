@@ -11,4 +11,6 @@ Route::resource('subtasks', SubTaskController::class);
 Route::put('tasks/{task}/change-status',             [TaskController::class, 'toggleTaskStatus'])->name('tasks.status.change');
 Route::put('tasks/subtasks/{subtask}/change-status', [SubTaskController::class, 'toggleSubTaskStatus'])->name('tasks.subtasks.status.change');
 
+Route::get('tasks/pending',                          [TaskController::class, 'pendingTasks'])->name('pending');
+
 // });

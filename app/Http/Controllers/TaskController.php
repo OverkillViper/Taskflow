@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SubTask;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -54,9 +55,9 @@ class TaskController extends Controller
         $newTask = Task::create($data);
 
         if($newTask) {
-            return redirect()->route('dashboard')->with(['status' => 'success', 'message' => 'Successfully created task']);
+            return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully created task']);
         } else {
-            return redirect()->route('dashboard')->with(['status' => 'error', 'message' => 'Error creating task']);
+            return redirect()->back()->with(['status' => 'error', 'message' => 'Error creating task']);
         }
     }
 
@@ -93,7 +94,21 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        $data = $request->validate([
+            'title'         => 'required|string|max:255',
+            'deadline'      => 'required|date',
+            'task_group_id' => 'int',
+        ]);
+
+        $data['deadline'] = $request->deadline != $task->deadline ? Carbon::parse($request->deadline)->addDay(1) : $task->deadline;
+
+        $updatedTask = $task->update($data);
+
+        if($updatedTask) {
+            return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully updated task']);
+        } else {
+            return redirect()->back()->with(['status' => 'error', 'message' => 'Error updating task']);
+        }
     }
 
     /**
@@ -101,10 +116,27 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $deletedTask = $task->delete();
+
+        if($deletedTask) {
+            return redirect()->route('tasks.index')->with(['status' => 'success', 'message' => 'Successfully deleted task']);
+        } else {
+            return redirect()->route('tasks.index')->with(['status' => 'error', 'message' => 'Error deleting task']);
+        }
     }
 
     public function toggleTaskStatus(Task $task) {
+        
+        // if(!$task->completed) {
+        $subtasks = SubTask::where('task_id', '=', $task->id)->get();
+
+        foreach ($subtasks as $subtask) {
+            $subtask->update([
+                'completed' => !$task->completed,
+            ]);
+        }
+        // }
+        
         $updatedTask = $task->update([
             'completed' => !$task->completed,
         ]);
@@ -114,5 +146,25 @@ class TaskController extends Controller
         } else {
             return redirect()->back()->with(['status' => 'error', 'message' => 'Error updating task status']);
         }
+    }
+
+    public function pendingTasks() {
+
+        dd('hello');
+
+        $tasks = Task::where('completed', '=', false)->with('taskGroup')
+                 ->withCount([
+                    'subTasks', 
+                    'subTasks as completed_subtasks_count' => function($query) {
+                        $query->where('completed', true);
+                    }
+                 ])
+                 ->get();
+
+        $context = [
+            'tasks' => $tasks
+        ];
+
+        return Inertia::render('Tasks/PendingTasks', $context);
     }
 }

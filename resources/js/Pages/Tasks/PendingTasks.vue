@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-<CoreLayout title="Tasks">
+<CoreLayout title="Pending Tasks">
     <div class="w-2/3 mx-auto mt-10">
         <div v-if="tasks.length != 0" class="mt-6">
             <!-- <GroupCard v-for="group in groups" :key="group.id" :group="group"/> -->

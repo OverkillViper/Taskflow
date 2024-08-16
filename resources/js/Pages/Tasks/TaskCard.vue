@@ -1,12 +1,13 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
 import MeterGroup from 'primevue/metergroup';
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import { parseISO, differenceInDays } from 'date-fns';
 
 const props = defineProps({
     task : Object,
-    showStatus : Boolean
+    showStatus : Boolean,
+    taskGroup : Object
 });
 
 const daysRemaining = computed(() => {
@@ -26,20 +27,23 @@ const daysRemaining = computed(() => {
     }
 });
 
-const value = ref([{ label: '', value: 15, color: '#252525' }]);
+const meterValue = computed(() => {
+    const taskCompleted = (props.task.completed_subtasks_count * 100) / props.task.sub_tasks_count || 0;
+    return [{ label: 'Task completed', value: taskCompleted, color: '#252525' }];
+});
 
 </script>
 
 <template>
-    <Link :href="route('tasks.show', task.id)" class="flex p-5 rounded-2xl shadow-sm border my-4 bg-white hover:shadow-md transition-all hover:border-gray-400 cursor-default select-none">
+    <Link :href="route('tasks.show', task.id)" class="flex p-5 rounded-2xl shadow-sm border my-4 bg-white hover:shadow-md transition-all hover:border-gray-400 cursor-default select-none ease-out">
         <div class="flex-grow">
             <div class="flex items-center justify-between">
-                <div class="flex items-center" v-if="task.task_group_id">
-                    <span class="w-7 h-7 flex justify-center items-center text-sm font-semibold text-white rounded-lg" :style="{ backgroundColor: '#' + task.task_group.color }">
-                        {{ task.task_group.title[0] }}
+                <div class="flex items-center" v-if="taskGroup">
+                    <span class="w-7 h-7 flex justify-center items-center text-sm font-semibold text-white rounded-lg" :style="{ backgroundColor: '#' + taskGroup.color }">
+                        {{ taskGroup.title[0] }}
                     </span>
                     <span class="text-sm text-gray-600 ms-2 font-medium">
-                        {{ task.task_group.title }}
+                        {{ taskGroup.title }}
                     </span>
                 </div>
         
@@ -59,7 +63,7 @@ const value = ref([{ label: '', value: 15, color: '#252525' }]);
             </div>
             
             <div class="w-1/2">
-                <MeterGroup :value="value" v-if="task.sub_tasks_count" class="mt-2"/>
+                <MeterGroup :value="meterValue" v-if="task.sub_tasks_count" class="mt-2"/>
                 <div class="text-sm text-gray-600" v-else>This task has no subordinate tasks</div>
             </div>
         </div>

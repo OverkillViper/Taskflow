@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\SubTask;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class SubTaskController extends Controller
@@ -33,6 +34,12 @@ class SubTaskController extends Controller
             'task_id' => 'required',
         ]);
 
+        $task = Task::findOrFail($request->task_id);
+
+        $task->update([
+            'completed' => false,
+        ]);
+
         $newSubTask = SubTask::create($data);
 
         if($newSubTask) {
@@ -45,7 +52,7 @@ class SubTaskController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SubTask $subTask)
+    public function show(SubTask $subtask)
     {
         //
     }
@@ -53,7 +60,7 @@ class SubTaskController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SubTask $subTask)
+    public function edit(SubTask $subtask)
     {
         //
     }
@@ -79,9 +86,15 @@ class SubTaskController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SubTask $subTask)
+    public function destroy(SubTask $subtask)
     {
-        //
+        $deletedSubTask = $subtask->delete();
+
+        if($deletedSubTask) {
+            return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully deleted subordinate task']);
+        } else {
+            return redirect()->back()->with(['status' => 'error', 'message' => 'Error deleting subordinate task']);
+        }
     }
 
     public function toggleSubTaskStatus(Request $request, SubTask $subtask) {
@@ -90,6 +103,16 @@ class SubTaskController extends Controller
 
         $updatedSubtask = $subtask->update([
             'completed' => $request->completed,
+        ]);
+
+        $task = $subtask->task;
+
+        
+
+        $allSubtasksCompleted = $task->subTasks()->where('completed', false)->count() === 0;
+
+        $task->update([
+            'completed' => $allSubtasksCompleted
         ]);
 
         if($updatedSubtask) {

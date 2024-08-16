@@ -18,7 +18,7 @@ const props = defineProps({
     </Link> -->
     <Link 
         :href="route(href)"
-        class="flex flex-col items-center justify-center bg-gray-50 border  py-3 rounded-xl w-16 h-16 hover:bg-gray-100 hover:border-gray-500 transition"
+        class="flex flex-col items-center justify-center bg-gray-50 border rounded-lg 2xl:rounded-xl  w-12 h-12 2xl:w-16 2xl:h-16 hover:bg-gray-100 hover:border-gray-500 transition"
         v-tooltip.bottom="label"
     >
         <i class="pi" :class="'pi-' + icon" style="font-size: 1.2rem"></i>

@@ -7,41 +7,38 @@ import { Link } from '@inertiajs/vue3';
 const visible = ref(false);
 
 const props = defineProps({
-    iconOnly : Boolean,
-    group    : Object,
+    task     : Object,
 })
 
 </script>
 
 <template>
     <div>
-        <button v-if="iconOnly" class="bg-gray-50 hover:bg-gray-200 transition w-10 h-10 flex items-center justify-center rounded-full" @click="visible = true">
-            <i class="pi pi-trash" style="font-size: 1rem"></i>
-        </button>
-        <Button label="Delete" icon="trash" @click="visible = true" v-else />
+        <Button label="Delete" icon="trash" @click="visible = true"/>
+        <!-- <Button label="Create new group" icon="plus" @click="visible = true" v-else /> -->
 
-        <Dialog v-model:visible="visible" modal header="Delete group" :style="{ width: '35rem' }">
+        <Dialog v-model:visible="visible" modal header="Delete task" :style="{ width: '35rem' }">
             <template #header>
                 <div class="inline-flex items-center justify-center gap-2">
                     <div class="bg-gray-700 text-white w-8 h-8 rounded-xl flex items-center justify-center">
                         <i class="pi pi-trash" style="font-size: 0.8rem; "></i>
                     </div>
                     
-                    <span class="font-semibold whitespace-nowrap">Delete Group</span>
+                    <span class="font-semibold whitespace-nowrap">Delete Task</span>
                 </div>
             </template>
 
             <div class="font-semibold">
-                Are you sure you want to delete this group?
+                Are you sure you want to delete this task?
                 <div class="flex">
                     <span class="font-semibold">Note:</span>
-                    <div class="font-medium ms-2">Deleting this group will also delete all its tasks and sub tasks.</div>
+                    <div class="font-medium ms-2">Deleting this task will also delete all its subordinate tasks.</div>
                 </div>
             </div>
 
             <template #footer>
                 <Button label="Cancel" icon="times" outline text @click="visible = false"/>
-                <Link :href="route('groups.destroy', group.id)" method="delete">
+                <Link :href="route('tasks.destroy', task.id)" method="delete">
                     <Button label="Delete" icon="trash"/>
                 </Link>
             </template>

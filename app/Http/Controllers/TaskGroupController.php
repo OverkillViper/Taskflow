@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TaskGroup;
+use App\Models\Task;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -52,9 +53,24 @@ class TaskGroupController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TaskGroup $taskGroup)
+    public function show(TaskGroup $group)
     {
-        //
+
+        $tasks = Task::where('task_group_id', '=', $group->id)->with('taskGroup')
+                 ->withCount([
+                    'subTasks', 
+                    'subTasks as completed_subtasks_count' => function($query) {
+                        $query->where('completed', true);
+                    }
+                 ])
+                 ->get();
+
+        $context = [
+            'group' => $group,
+            'tasks' => $tasks,
+        ];
+
+        return Inertia::render('Groups/GroupDetails', $context);
     }
 
     /**
@@ -68,9 +84,20 @@ class TaskGroupController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TaskGroup $taskGroup)
+    public function update(Request $request, TaskGroup $group)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required|string|max:255',
+            'color' => 'required|string|max:10'
+        ]);
+
+        $updatedGroup = $group->update($data);
+
+        if($updatedGroup) {
+            return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully updated group']);
+        } else {
+            return redirect()->back()->with(['status' => 'error', 'message' => 'Error updating group']);
+        }
     }
 
     /**
