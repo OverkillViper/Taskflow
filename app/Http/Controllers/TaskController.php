@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SubTask;
 use App\Models\Task;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Inertia\Inertia;
@@ -68,14 +69,17 @@ class TaskController extends Controller
     {
         $task->load('taskGroup', 'subTasks'); // Eager load task group and subtasks
 
+        $tags = Tag::all();
+
         $context = [
             'task' => $task->loadCount(['subTasks as sub_tasks_count', 'subTasks as completed_subtasks_count' => function($query) {
                 $query->where('completed', true);
             }]),
-            'taskGroup' => $task->taskGroup,
-            'subTasks' => $task->subTasks,
-            'subTasksCount' => $task->sub_tasks_count,
+            'taskGroup'              => $task->taskGroup,
+            'subTasks'               => $task->subTasks,
+            'subTasksCount'          => $task->sub_tasks_count,
             'completedSubTasksCount' => $task->completed_subtasks_count,
+            'tags'                   => $tags,
         ];
 
         return Inertia::render('Tasks/TaskDetails', $context);
@@ -149,9 +153,6 @@ class TaskController extends Controller
     }
 
     public function pendingTasks() {
-
-        dd('hello');
-
         $tasks = Task::where('completed', '=', false)->with('taskGroup')
                  ->withCount([
                     'subTasks', 
@@ -166,5 +167,43 @@ class TaskController extends Controller
         ];
 
         return Inertia::render('Tasks/PendingTasks', $context);
+    }
+
+    public function completedTasks() {
+        $tasks = Task::where('completed', '=', true)->with('taskGroup')
+                 ->withCount([
+                    'subTasks', 
+                    'subTasks as completed_subtasks_count' => function($query) {
+                        $query->where('completed', true);
+                    }
+                 ])
+                 ->get();
+
+        $context = [
+            'tasks' => $tasks
+        ];
+
+        return Inertia::render('Tasks/CompletedTasks', $context);
+    }
+
+    public function missedTasks() {
+        $tasks = Task::where('completed', false)->where('deadline', '<', Carbon::now())->with('taskGroup')
+                 ->withCount([
+                    'subTasks', 
+                    'subTasks as completed_subtasks_count' => function($query) {
+                        $query->where('completed', true);
+                    }
+                 ])
+                 ->get();
+
+        $context = [
+            'tasks' => $tasks
+        ];
+
+        return Inertia::render('Tasks/MissedTasks', $context);
+    }
+
+    public function addTagToTask(Request $request, Task $task) {
+        dd($request->tags);
     }
 }

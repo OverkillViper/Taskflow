@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Task extends Model
 {
     use HasFactory;
-
     protected $fillable = ['title', 'deadline', 'task_group_id', 'completed'];
+    
+    protected $appends = ['missed'];
 
     // Relationships
     public function taskGroup()
@@ -38,4 +40,11 @@ class Task extends Model
         return $this->subTasks()->where('completed', true)->count();
     }
 
+    public function getMissedAttribute()
+    {
+        $now = Carbon::now();
+        $deadline = Carbon::parse($this->deadline);
+
+        return !$this->completed && $deadline->isPast();
+    }
 }

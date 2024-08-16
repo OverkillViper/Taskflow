@@ -91,3 +91,11 @@
 .p-divider-content {
     background-color: rgb(249 250 251) !important;
 }
+
+.p-multiselect-filter-container .p-inputtext {
+    @apply text-sm py-1 px-2 font-medium;
+}
+
+.p-multiselect-option {
+    @apply text-sm;
+}

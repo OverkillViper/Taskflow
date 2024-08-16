@@ -10,7 +10,7 @@ const visible = ref(false);
 
 const createGroupForm = useForm({
     title : '',
-    color : '#9c82f7'
+    color : '9c82f7'
 })
 
 const createNewGroup = () => {
@@ -26,7 +26,7 @@ const createNewGroup = () => {
 
 <template>
     <div>
-        <Button label="Create new group" icon="plus" @click="visible = true"/>
+        <Button label="Create new group" icon="plus" @click="visible = true" class="w-full"/>
 
         <Dialog v-model:visible="visible" modal header="" :style="{ width: '25rem' }">
             <template #header>
@@ -40,7 +40,7 @@ const createNewGroup = () => {
             </template>
 
             <form @submit.prevent class="flex items-center gap-x-4">
-                <InputText type="text" v-model="createGroupForm.title" placeholder="Group title" variant="filled" class="flex-grow"/>
+                <InputText type="text" v-model="createGroupForm.title" placeholder="Group title" variant="filled" class="flex-grow" @keyup.enter="createNewGroup"/>
                 <ColorPicker v-model="createGroupForm.color"/>
             </form>
 

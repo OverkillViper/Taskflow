@@ -10,10 +10,14 @@ import NoRecordMessage from '@/Pages/Dashboard/NoRecordMessage.vue';
 import MeterGroup from 'primevue/metergroup';
 import EditTaskDialog from './EditTaskDialog.vue';
 import DeleteTaskDialog from './DeleteTaskDialog.vue';
+import MultiSelect from 'primevue/multiselect';
 
 const props = defineProps({
-    task : Object
+    task : Object,
+    tags : Array,
 });
+
+const daysRemainingLabel = ref('');
 
 const daysRemaining = computed(() => {
     const now = new Date();
@@ -24,11 +28,13 @@ const daysRemaining = computed(() => {
     const roundedDays = Math.ceil(diffInDays);
 
     if (roundedDays > 0) {
-        return `${roundedDays} day${roundedDays > 1 ? 's' : ''} remaining`;
+        daysRemainingLabel.value = `Day${roundedDays > 1 ? 's' : ''} remaining`;
+        return roundedDays > 9 ? roundedDays : `0${roundedDays}`;
     } else if (roundedDays === 0) {
-        return 'Deadline tomorrow';
+        daysRemainingLabel.value = 'Day remaining'
     } else {
-        return `${Math.abs(roundedDays)} day${Math.abs(roundedDays) > 1 ? 's' : ''} overdue`;
+        daysRemainingLabel.value = `Day${roundedDays > 1 ? 's' : ''} overdue`;
+        return roundedDays > 9 ? Math.abs(roundedDays) : `0${Math.abs(roundedDays)}`;
     }
 });
 
@@ -40,6 +46,10 @@ const meterValue = computed(() => {
 const createSubTaskForm = useForm({
     'title'     : '',
     'task_id'   : props.task.id,
+});
+
+const taskTagsForm = useForm({
+    tags : []
 })
 
 const createNewSubTask = () => {
@@ -48,6 +58,14 @@ const createNewSubTask = () => {
             createSubTaskForm.title = '';
         },
     });
+}
+
+const addTags = () => {
+    taskTagsForm.post(route('tasks.tag.add', props.task.id), {
+        onFinish: () => {
+            taskTagsForm.tags = [];
+        },
+    })
 }
 
 </script>
@@ -68,6 +86,10 @@ const createNewSubTask = () => {
                 <i class="pi pi-check-circle me-4" style="font-size: 0.8rem"></i>
                 <div>Completed</div>
             </span>
+            <span class="flex items-center bg-red-600 border border-red-700 rounded-lg px-4 py-2 font-semibold text-white" v-else-if="task.missed">
+                <i class="pi pi-hourglass me-4" style="font-size: 0.8rem"></i>
+                <div>Missed</div>
+            </span>
             <span class="flex items-center bg-gray-500 border border-gray-700 rounded-lg px-4 py-2 font-semibold text-white" v-else>
                 <i class="pi pi-hourglass me-4" style="font-size: 0.8rem"></i>
                 <div>Pending</div>
@@ -80,7 +102,7 @@ const createNewSubTask = () => {
                     <span class="w-7 h-7 flex justify-center items-center text-sm font-semibold text-white rounded-lg" :style="{ backgroundColor: '#' + task.task_group.color }">
                         {{ task.task_group.title[0] }}
                     </span>
-                    <span class="text-sm text-gray-600 ms-2 font-medium">
+                    <span class="text-sm text-gray-600 mx-2 font-medium">
                         {{ task.task_group.title }}
                     </span>
                 </Link>
@@ -94,12 +116,10 @@ const createNewSubTask = () => {
                     </span>
                 </div>
                 <div class="flex mt-4">
-                    <span class="w-7 h-7 flex justify-center items-center text-sm font-semibold text-gray-700 rounded-lg bg-gray-200">
-                        <i class="pi pi-calendar" style="font-size: 0.8rem"></i>
-                    </span>
+                    <span class="text-4xl">{{ daysRemaining }}</span>
                     <div class="ms-2 text-sm">
-                        <div class="text-gray-600 font-semibold uppercase">Deadline</div>
-                        <div class="font-medium">{{ task.deadline }} ({{ daysRemaining }})</div>
+                        <div class="text-gray-600 font-semibold uppercase">{{ daysRemainingLabel }}</div>
+                        <div class="font-medium">{{ task.deadline }}</div>
                     </div>
                 </div>
             </div>
@@ -110,6 +130,15 @@ const createNewSubTask = () => {
             </div>
         </div>
         
+        <hr class="my-6">
+
+        <form @submit.prevent="addTags" class="flex items-center">
+            <div class="text-sm uppercase font-semibold flex-grow">Tags</div>
+            <MultiSelect class="text-sm max-w-1/2 me-2" :options="tags" v-model="taskTagsForm.tags" display="chip" optionLabel="name" filter placeholder="Add a tag"/>
+            <Button icon="plus" label="add" type="submit"/>
+        </form>
+
+
         <hr class="my-6">
 
         <form class="flex items-center text-sm gap-x-4" @submit.prevent="createNewSubTask">

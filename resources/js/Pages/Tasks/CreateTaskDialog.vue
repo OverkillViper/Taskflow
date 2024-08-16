@@ -15,7 +15,7 @@ const groups = $page.props.taskGroups;
 const taskCreateForm = useForm({
     title           : '',
     deadline        : null,
-    task_group_id   : '',
+    task_group_id   : null,
 })
 
 let today = new Date();
@@ -33,6 +33,7 @@ const createTask = () => {
     taskCreateForm.post(route('tasks.store'), {
         onFinish: () => {
             taskCreateForm.reset();
+            taskCreateForm.task_group_id = null;
             visible.value = false;
         },
     });
@@ -64,7 +65,7 @@ const createTask = () => {
                             <i class="pi pi-calendar" @click="slotProps.clickCallback" />
                         </template>
                     </DatePicker>
-                    <Select showClear v-model="taskCreateForm.task_group_id" :options="groups" filter optionLabel="title" :optionValue="groups.title" placeholder="Select a group" class="w-full basis-1/2" variant="filled">
+                    <Select showClear v-model="taskCreateForm.task_group_id" :options="groups" filter optionLabel="title" placeholder="Select a group" class="w-full basis-1/2" variant="filled">
                         <template #value="slotProps">
                             <div v-if="slotProps.value" class="flex items-center">
                                 <div>{{ slotProps.value.title }}</div>

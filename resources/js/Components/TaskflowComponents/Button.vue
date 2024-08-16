@@ -12,7 +12,7 @@ const props = defineProps ({
 
 <template>
     <button :type="type" class="rounded-lg transition-all flex items-center" :class="[compact ? 'px-2 py-1' : 'px-4 py-2', outline ? 'border border-gray-700 hover:bg-gray-100' : 'bg-gray-700 hover:opacity-85 ', icon ? 'gap-x-2' : '']">
-        <i class="pi" :class="['pi-' + icon, outline ? 'text-gray-700' : 'text-white']" :style="compact ? 'font-size: 0.7rem' : 'font-size: 1rem'"></i>
+        <i class="pi" :class="['pi-' + icon, outline ? 'text-gray-700' : 'text-white']" style="font-size: 0.7rem"></i>
         <div class="uppercase font-semibold" :class="[compact ? 'text-xs' : 'text-sm', outline ? 'text-gray-700' : 'text-white']">
             {{ label }}
         </div>

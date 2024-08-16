@@ -72,8 +72,8 @@ const meterValue = computed(() => {
                 {{ daysRemaining }}
             </div>
             <div class="flex-grow flex items-end" v-if="showStatus">
-                <div class="rounded-lg border w-10 h-10 flex items-center justify-center" :class="task.completed ? 'border-green-700 bg-green-300' : 'border-gray-600 bg-gray-500'">
-                    <i class="pi" :class="task.completed ? 'pi-check-circle text-green-700' : 'pi-hourglass text-white'"></i>
+                <div class="rounded-lg border w-10 h-10 flex items-center justify-center" :class="task.completed ? 'border-green-700 bg-green-300' : ( task.missed ? 'border-red-600 bg-red-500' : 'border-gray-600 bg-gray-500')">
+                    <i class="pi" :class="task.completed ? 'pi-check-circle text-green-700' : ( task.missed ? 'pi-times-circle text-white' : 'pi-hourglass text-white')"></i>
                 </div>
             </div>
             

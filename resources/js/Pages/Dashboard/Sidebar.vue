@@ -1,8 +1,9 @@
 <script setup>
 import { Link, usePage } from '@inertiajs/vue3';
 import SidebarItem from '@/Components/TaskflowComponents/SidebarItem.vue';
-import GroupTile from '@/Pages/Groups/GroupTile.vue';
 import CreateTaskDialog from '@/Pages/Tasks/CreateTaskDialog.vue';
+import CreateGroupDialog from '../Groups/CreateGroupDialog.vue';
+import CreateTagDialog from '../Tags/CreateTagDialog.vue';
 
 const $page = usePage();
 const taskGroups = $page.props.taskGroups;
@@ -34,9 +35,9 @@ const taskGroups = $page.props.taskGroups;
 
                 <div class="flex justify-between my-6">
                     <SidebarItem icon="calendar" label="Todays Tasks" href="dashboard"/>
-                    <SidebarItem icon="hourglass" label="Pending Tasks" href="pending"/>
-                    <SidebarItem icon="check-circle" label="Completed Tasks" href="dashboard"/>
-                    <SidebarItem icon="check-circle" label="Missed Tasks" href="dashboard"/>
+                    <SidebarItem icon="hourglass" label="Pending Tasks" href="tasks.pending"/>
+                    <SidebarItem icon="check-circle" label="Completed Tasks" href="tasks.completed"/>
+                    <SidebarItem icon="times-circle" label="Missed Tasks" href="tasks.missed"/>
                 </div>
                 
             </div>
@@ -47,7 +48,16 @@ const taskGroups = $page.props.taskGroups;
             </div>
 
             <div class="mt-4">
-                <GroupTile v-for="group in taskGroups.slice(0,3)" :key="group.id" :group="group"/>
+                <CreateGroupDialog class="w-full" />
+            </div>
+
+            <div class="flex items-center justify-between text-sm uppercase mt-4">
+                <div class="font-semibold">Tags</div>
+                <Link :href="route('tags.index')" class="text-xs font-medium text-gray-500 hover:text-gray-700 transition">View All</Link>
+            </div>
+
+            <div class="mt-4">
+                <CreateTagDialog class="w-full" />
             </div>
         </div>
         <div class="px-5 pb-5">
