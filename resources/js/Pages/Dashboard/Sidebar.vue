@@ -34,10 +34,10 @@ const taskGroups = $page.props.taskGroups;
                 </div>
 
                 <div class="flex justify-between my-6">
-                    <SidebarItem icon="calendar" label="Todays Tasks" href="dashboard"/>
-                    <SidebarItem icon="hourglass" label="Pending Tasks" href="tasks.pending"/>
-                    <SidebarItem icon="check-circle" label="Completed Tasks" href="tasks.completed"/>
-                    <SidebarItem icon="times-circle" label="Missed Tasks" href="tasks.missed"/>
+                    <SidebarItem icon="objects-column"  label="Dashboard"       href="dashboard"/>
+                    <SidebarItem icon="hourglass"       label="Pending Tasks"   href="tasks.index"  param="pending"/>
+                    <SidebarItem icon="check-circle"    label="Completed Tasks" href="tasks.index"  param="completed"/>
+                    <SidebarItem icon="times-circle"    label="Missed Tasks"    href="tasks.index"  param="missed"/>
                 </div>
                 
             </div>

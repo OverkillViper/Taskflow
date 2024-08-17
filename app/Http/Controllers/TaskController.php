@@ -15,19 +15,56 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tasks = Task::with('taskGroup')
-                 ->withCount([
-                    'subTasks', 
-                    'subTasks as completed_subtasks_count' => function($query) {
-                        $query->where('completed', true);
-                    }
-                 ])
-                 ->get();
+        $filter = $request->filter;
+
+        switch($filter) {
+            case 'pending' :
+                $tasks = Task::where('completed', '=', false)
+                             ->where('deadline', '>', Carbon::now())
+                             ->with('taskGroup')
+                             ->withCount([
+                                 'subTasks', 
+                                 'subTasks as completed_subtasks_count' => function($query) {
+                                     $query->where('completed', true);
+                                 }
+                             ])->paginate(4);
+                break;
+            case 'completed' :
+                $tasks = Task::where('completed', '=', true)
+                             ->with('taskGroup')
+                             ->withCount([
+                                 'subTasks', 
+                                 'subTasks as completed_subtasks_count' => function($query) {
+                                     $query->where('completed', true);
+                                 }
+                             ])->paginate(4);
+                break;
+            case 'missed' :
+                $tasks = Task::where('completed', false)
+                             ->where('deadline', '<', Carbon::now())
+                             ->with('taskGroup')
+                             ->withCount([
+                                 'subTasks', 
+                                 'subTasks as completed_subtasks_count' => function($query) {
+                                     $query->where('completed', true);
+                                 }
+                             ])->paginate(4);
+                break;
+            default :
+                $tasks = Task::with('taskGroup')
+                             ->withCount([
+                                 'subTasks', 
+                                 'subTasks as completed_subtasks_count' => function($query) {
+                                     $query->where('completed', true);
+                                 }
+                             ])->paginate(4);
+        }
 
         $context = [
-            'tasks' => $tasks
+            'tasks' => $tasks,
+            'filter' => $filter,
         ];
 
         return Inertia::render('Tasks/Index', $context);
@@ -49,11 +86,10 @@ class TaskController extends Controller
         $data = $request->validate([
             'title'         => 'required|string|max:255',
             'deadline'      => 'required|date',
-            'task_group_id' => 'int'
         ]);
 
         $data['deadline'] = Carbon::parse($request->deadline)->addDay(1);
-
+        $data['task_group_id'] = $request->task_group_id;
         $newTask = Task::create($data);
 
         if($newTask) {
@@ -127,9 +163,9 @@ class TaskController extends Controller
         $deletedTask = $task->delete();
 
         if($deletedTask) {
-            return redirect()->route('tasks.index')->with(['status' => 'success', 'message' => 'Successfully deleted task']);
+            return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully deleted task']);
         } else {
-            return redirect()->route('tasks.index')->with(['status' => 'error', 'message' => 'Error deleting task']);
+            return redirect()->back()->with(['status' => 'error', 'message' => 'Error deleting task']);
         }
     }
 
@@ -154,57 +190,6 @@ class TaskController extends Controller
         } else {
             return redirect()->back()->with(['status' => 'error', 'message' => 'Error updating task status']);
         }
-    }
-
-    public function pendingTasks() {
-        $tasks = Task::where('completed', '=', false)->with('taskGroup')
-                 ->withCount([
-                    'subTasks', 
-                    'subTasks as completed_subtasks_count' => function($query) {
-                        $query->where('completed', true);
-                    }
-                 ])
-                 ->get();
-
-        $context = [
-            'tasks' => $tasks
-        ];
-
-        return Inertia::render('Tasks/PendingTasks', $context);
-    }
-
-    public function completedTasks() {
-        $tasks = Task::where('completed', '=', true)->with('taskGroup')
-                 ->withCount([
-                    'subTasks', 
-                    'subTasks as completed_subtasks_count' => function($query) {
-                        $query->where('completed', true);
-                    }
-                 ])
-                 ->get();
-
-        $context = [
-            'tasks' => $tasks
-        ];
-
-        return Inertia::render('Tasks/CompletedTasks', $context);
-    }
-
-    public function missedTasks() {
-        $tasks = Task::where('completed', false)->where('deadline', '<', Carbon::now())->with('taskGroup')
-                 ->withCount([
-                    'subTasks', 
-                    'subTasks as completed_subtasks_count' => function($query) {
-                        $query->where('completed', true);
-                    }
-                 ])
-                 ->get();
-
-        $context = [
-            'tasks' => $tasks
-        ];
-
-        return Inertia::render('Tasks/MissedTasks', $context);
     }
 
     public function addTagToTask(Request $request, Task $task) {

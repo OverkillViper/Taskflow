@@ -28,11 +28,12 @@ minDate.value.setMonth(month);
 minDate.value.setFullYear(year);
 
 const createTask = () => {    
-    taskCreateForm.task_group_id = taskCreateForm.task_group_id.id;
+    taskCreateForm.task_group_id = taskCreateForm.task_group_id == null ? null : taskCreateForm.task_group_id.id;
 
     taskCreateForm.post(route('tasks.store'), {
         onFinish: () => {
-            taskCreateForm.reset();
+            taskCreateForm.title         = '';
+            taskCreateForm.deadline      = null;
             taskCreateForm.task_group_id = null;
             visible.value = false;
         },

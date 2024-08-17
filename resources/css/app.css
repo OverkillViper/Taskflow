@@ -99,3 +99,27 @@
 .p-multiselect-option {
     @apply text-sm;
 }
+
+.p-tablist-tab-list {
+    background-color: transparent !important;
+}
+
+.p-tab {
+    padding: 0.7rem 1.5rem !important;
+}
+
+.p-tabpanels {
+    background-color: transparent !important;
+}
+
+.p-paginator {
+    background-color: transparent !important;
+}
+
+.p-menu-submenu-label {
+    display: none;
+}
+
+.p-popover-content {
+    padding: 0rem !important;
+}

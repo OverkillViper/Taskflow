@@ -14,8 +14,12 @@ const props = defineProps({
 
 <template>
     <div>
-        <Button label="Delete" icon="trash" @click="visible = true"/>
+        <!-- <Button label="Delete" icon="trash" @click="visible = true"/> -->
         <!-- <Button label="Create new group" icon="plus" @click="visible = true" v-else /> -->
+        <button href="#" class="flex items-center hover:bg-gray-100 rounded-md transition p-2 w-full" @click="visible = true">
+            <span class="pi pi-trash"></span>
+            <div class="text-sm ms-2 font-medium">Delete</div>
+        </button>
 
         <Dialog v-model:visible="visible" modal header="Delete task" :style="{ width: '35rem' }">
             <template #header>
@@ -38,7 +42,7 @@ const props = defineProps({
 
             <template #footer>
                 <Button label="Cancel" icon="times" outline text @click="visible = false"/>
-                <Link :href="route('tasks.destroy', task.id)" method="delete">
+                <Link :href="route('tasks.destroy', task.id)" method="delete" as="button">
                     <Button label="Delete" icon="trash"/>
                 </Link>
             </template>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\Task;
 
 class TagsController extends Controller
 {
@@ -53,7 +54,22 @@ class TagsController extends Controller
      */
     public function show(Tag $tag)
     {
-        //
+        $tasks = $tag->tasks()->with('taskGroup')
+                ->withCount([
+                    'subTasks', 
+                    'subTasks as completed_subtasks_count' => function($query) {
+                        $query->where('completed', true);
+                    }
+                ])
+                ->orderBy('deadline', 'asc')
+                ->paginate(4);
+
+        $context = [
+            'tag'   => $tag,
+            'tasks' => $tasks,
+        ];
+
+        return Inertia::render('Tags/TagDetails', $context);
     }
 
     /**

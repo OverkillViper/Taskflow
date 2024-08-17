@@ -80,7 +80,6 @@ const addTags = () => {
                 {{ task.title }}
             </div>
             <EditTaskDialog :task="task"/>
-            <DeleteTaskDialog :task="task"/>
         </div>
 
         <div class="my-6 w-40 select-none">
@@ -136,12 +135,15 @@ const addTags = () => {
 
         <form @submit.prevent="addTags" class="flex items-center">
             <div class="text-sm uppercase font-semibold flex-grow">Tags</div>
-            <MultiSelect class="text-sm w-1/2 me-2" :options="tags" v-model="taskTagsForm.tags" display="chip" optionLabel="name" filter placeholder="Add a tag"/>
+            <MultiSelect class="text-sm w-1/3 me-2" :options="tags" v-model="taskTagsForm.tags" display="chip" optionLabel="name" filter placeholder="Add a tag"/>
             <Button icon="plus" label="add" type="submit"/>
         </form>
 
-        <div class="flex items-center gap-4 mt-4">
+        <div class="flex items-center gap-4 mt-4" v-if="taskTags.length">
             <TaskTagCard v-for="taskTag in taskTags" :key="taskTag.id" :taskTag="taskTag" compact/>
+        </div>
+        <div v-else class="text-sm text-gray-500">
+            This task has no tags
         </div>
 
         <hr class="my-6">

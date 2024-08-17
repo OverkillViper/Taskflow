@@ -16,7 +16,8 @@ const createGroupForm = useForm({
 const createNewGroup = () => {
     createGroupForm.post(route('groups.store'), {
         onFinish: () => {
-            createGroupForm.reset();
+            createGroupForm.title = '';
+            createGroupForm.color = '9c82f7';
             visible.value = false;
         },
     });

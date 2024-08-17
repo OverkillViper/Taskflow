@@ -13,9 +13,6 @@ const props = defineProps({
 <template>
 <CoreLayout title="Task Groups">
     <div class="w-2/3 mx-auto mt-10">
-        <div class="flex justify-end">
-            <CreateGroupDialog />
-        </div>
         <div v-if="groups.length != 0" class="grid grid-cols-2 2xl:grid-cols-3 gap-6 mt-6">
             <GroupCard v-for="group in groups" :key="group.id" :group="group"/>
         </div>
