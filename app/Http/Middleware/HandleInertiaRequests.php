@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use App\Models\TaskGroup;
+use Illuminate\Support\Facades\Auth;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -30,7 +31,11 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {   
-        $taskGroups = TaskGroup::withCount('tasks')->orderBy('created_at', 'desc')->get();
+        if(Auth::check()) {
+            $taskGroups = TaskGroup::where('user_id', '=', Auth::user()->id)->withCount('tasks')->orderBy('created_at', 'desc')->get();
+        } else {
+            $taskGroups = null;
+        }
 
         return [
             ...parent::share($request),

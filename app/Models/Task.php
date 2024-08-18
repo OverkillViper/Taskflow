@@ -9,7 +9,7 @@ use Carbon\Carbon;
 class Task extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'deadline', 'task_group_id', 'completed'];
+    protected $fillable = ['title', 'deadline', 'task_group_id', 'completed', 'user_id'];
     
     protected $appends = ['missed'];
 
@@ -46,5 +46,10 @@ class Task extends Model
         $deadline = Carbon::parse($this->deadline);
 
         return !$this->completed && $deadline->isPast();
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

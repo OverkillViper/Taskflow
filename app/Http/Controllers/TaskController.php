@@ -9,6 +9,8 @@ use App\Models\TaskTag;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
+
 
 class TaskController extends Controller
 {
@@ -21,7 +23,8 @@ class TaskController extends Controller
 
         switch($filter) {
             case 'pending' :
-                $tasks = Task::where('completed', '=', false)
+                $tasks = Task::where('user_id', '=', Auth::user()->id)
+                             ->where('completed', '=', false)
                              ->where('deadline', '>', Carbon::now())
                              ->with('taskGroup')
                              ->withCount([
@@ -32,7 +35,8 @@ class TaskController extends Controller
                              ])->paginate(4);
                 break;
             case 'completed' :
-                $tasks = Task::where('completed', '=', true)
+                $tasks = Task::where('user_id', '=', Auth::user()->id)
+                             ->where('completed', '=', true)
                              ->with('taskGroup')
                              ->withCount([
                                  'subTasks', 
@@ -42,7 +46,8 @@ class TaskController extends Controller
                              ])->paginate(4);
                 break;
             case 'missed' :
-                $tasks = Task::where('completed', false)
+                $tasks = Task::where('user_id', '=', Auth::user()->id)
+                             ->where('completed', false)
                              ->where('deadline', '<', Carbon::now())
                              ->with('taskGroup')
                              ->withCount([
@@ -53,7 +58,8 @@ class TaskController extends Controller
                              ])->paginate(4);
                 break;
             default :
-                $tasks = Task::with('taskGroup')
+                $tasks = Task::where('user_id', '=', Auth::user()->id)
+                             ->with('taskGroup')
                              ->withCount([
                                  'subTasks', 
                                  'subTasks as completed_subtasks_count' => function($query) {
@@ -88,6 +94,7 @@ class TaskController extends Controller
             'deadline'      => 'required|date',
         ]);
 
+        $data['user_id']  = Auth::user()->id;
         $data['deadline'] = Carbon::parse($request->deadline)->addDay(1);
         $data['task_group_id'] = $request->task_group_id;
         $newTask = Task::create($data);
@@ -106,7 +113,7 @@ class TaskController extends Controller
     {
         $task->load('taskGroup', 'subTasks'); // Eager load task group and subtasks
 
-        $tags = Tag::all();
+        $tags = Tag::where('user_id', '=', Auth::user()->id)->get();
 
         $taskTags = TaskTag::where('task_id', '=', $task->id)->with('tag')->get();
 
@@ -160,7 +167,9 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        $deletedTask = $task->delete();
+        if(Auth::user()->id == $task->user_id) {
+            $deletedTask = $task->delete();
+        }
 
         if($deletedTask) {
             return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully deleted task']);
@@ -171,19 +180,19 @@ class TaskController extends Controller
 
     public function toggleTaskStatus(Task $task) {
         
-        // if(!$task->completed) {
-        $subtasks = SubTask::where('task_id', '=', $task->id)->get();
+        if(Auth::user()->id == $task->user_id) {
+            $subtasks = SubTask::where('task_id', '=', $task->id)->get();
 
-        foreach ($subtasks as $subtask) {
-            $subtask->update([
+            foreach ($subtasks as $subtask) {
+                $subtask->update([
+                    'completed' => !$task->completed,
+                ]);
+            }
+        
+            $updatedTask = $task->update([
                 'completed' => !$task->completed,
             ]);
         }
-        // }
-        
-        $updatedTask = $task->update([
-            'completed' => !$task->completed,
-        ]);
 
         if($updatedTask) {
             return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully updated task status']);
@@ -195,28 +204,32 @@ class TaskController extends Controller
     public function addTagToTask(Request $request, Task $task) {
         
         // $tags
+        if(Auth::user()->id == $task->user_id) {
+            $tags = $request->tags;
 
-        $tags = $request->tags;
+            foreach ($tags as $tag) {
+                if (!TaskTag::where('tag_id', $tag['id'])->exists()) {
+                    $newTaskTag = TaskTag::create([
+                        'task_id' => $task->id,
+                        'tag_id'  => $tag['id'],
+                    ]);
 
-        foreach ($tags as $tag) {
-            if (!TaskTag::where('tag_id', $tag['id'])->exists()) {
-                $newTaskTag = TaskTag::create([
-                    'task_id' => $task->id,
-                    'tag_id'  => $tag['id'],
-                ]);
-
-                if($newTaskTag == null) {
-                    return redirect()->back()->with(['status' => 'error', 'message' => 'Error assigning tag']);
+                    if($newTaskTag == null) {
+                        return redirect()->back()->with(['status' => 'error', 'message' => 'Error assigning tag']);
+                    }
                 }
             }
-        }
 
-        return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully assigned tags']);
+            return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully assigned tags']);
+        }
     }
 
     public function removeTagFromTask(TaskTag $tasktag) {
-        $deletedTaskTag = $tasktag->delete();
 
+        if(Auth::user()->id == $tasktag->task->user_id) {
+            $deletedTaskTag = $tasktag->delete();
+        }
+        
         if($deletedTaskTag) {
             return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully removed tag']);
         } else {

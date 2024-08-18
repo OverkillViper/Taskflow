@@ -23,14 +23,16 @@ Route::get('/', function () {
 //     return Inertia::render('Dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/dashboard', [FrontendController::class, 'dashboard'])->name('dashboard');
-Route::get('/search',    [FrontendController::class, 'search'])->name('search');
+Route::get('/dashboard', [FrontendController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/search',    [FrontendController::class, 'search'])->middleware(['auth', 'verified'])->name('search');
 
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/change-avatar', [ProfileController::class, 'changeProfilePicture'])->name('profile.avatar.update');
+    Route::post('/remove-avatar', [ProfileController::class, 'removeProfilePicture'])->name('profile.avatar.remove');
 });
 
 require __DIR__.'/auth.php';

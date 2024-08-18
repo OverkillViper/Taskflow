@@ -1,11 +1,13 @@
 <script setup>
-import Checkbox from '@/Components/Checkbox.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
+import Checkbox from 'primevue/checkbox';
+import InputText from 'primevue/inputtext';
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
+import Password from 'primevue/password';
+import Button from '@/Components/TaskflowComponents/Button.vue';
+import ProgressSpinner from 'primevue/progressspinner';
 
 defineProps({
     canResetPassword: {
@@ -33,61 +35,55 @@ const submit = () => {
     <GuestLayout>
         <Head title="Log in" />
 
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-            {{ status }}
+        <div class="flex items-center justify-center h-96" v-if="form.processing">
+            <ProgressSpinner
+                style="width: 50px; height: 50px"
+                strokeWidth="3"
+                fill="transparent"
+                animationDuration="1s"
+                aria-label="Custom ProgressSpinner"
+            />
         </div>
 
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="email" value="Email" />
+        <form @submit.prevent="submit" v-else>
+            <div class="font-semibold text-2xl">Sign In</div>
 
-                <TextInput
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autofocus
-                    autocomplete="username"
-                />
-
-                <InputError class="mt-2" :message="form.errors.email" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-
-                <TextInput
-                    id="password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password"
-                    required
-                    autocomplete="current-password"
-                />
-
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
-            <div class="block mt-4">
-                <label class="flex items-center">
-                    <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ms-2 text-sm text-gray-600">Remember me</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
+            <InputGroup class="mt-10">
+                <InputGroupAddon>
+                    <i class="pi pi-envelope" style="font-size: 0.8rem;"></i>
+                </InputGroupAddon>
+                <InputText placeholder="Email" size="small" variant="filled" v-model="form.email"/>
+            </InputGroup>
+            <InputGroup class="mt-4">
+                <InputGroupAddon>
+                    <i class="pi pi-key" style="font-size: 0.8rem;"></i>
+                </InputGroupAddon>
+                <Password v-model="form.password" :feedback="false" toggleMask variant="filled" placeholder="Password"/>
+            </InputGroup>   
+            <div class="flex items-center mt-4">
+                <Checkbox v-model="form.remember" :binary="true" />
+                <div class="text-sm font-medium ms-2 text-gray-600 select-none flex-grow">Keep me logged in</div>
                 <Link
                     v-if="canResetPassword"
                     :href="route('password.request')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none"
                 >
                     Forgot your password?
                 </Link>
+            </div>
+            <div class="flex justify-center mt-4">
+                <Button label="Sign In" icon="sign-in" :class="{ 'opacity-50': form.processing }" :disabled="form.processing" class="w-40"/>
+            </div>
 
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
-                </PrimaryButton>
+            <hr class="my-8">
+
+            <div class="text-center text-gray-500 font-medium">
+                Don't have an account?
+            </div>
+            <div class="flex justify-center mt-4">
+                <Link :href="route('register')">
+                    <Button label="Register" icon="user-plus" :class="{ 'opacity-50': form.processing }" :disabled="form.processing" class="w-40"/>
+                </Link>
             </div>
         </form>
     </GuestLayout>

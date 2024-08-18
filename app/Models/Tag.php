@@ -9,11 +9,16 @@ class Tag extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'color'];
+    protected $fillable = ['name', 'user_id'];
 
     // Relationships
     public function tasks()
     {
         return $this->belongsToMany(Task::class, 'task_tags');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

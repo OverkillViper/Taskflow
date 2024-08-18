@@ -1,11 +1,15 @@
 <script setup>
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import InputText from 'primevue/inputtext';
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
 import { Link, useForm, usePage } from '@inertiajs/vue3';
+import Button from '@/Components/TaskflowComponents/Button.vue';
+import ChangeProfilePictureDialog from './ChangeProfilePictureDialog.vue';
+import Popover from 'primevue/popover';
+import { ref, watch } from 'vue';
 
-defineProps({
+
+const props = defineProps({
     mustVerifyEmail: {
         type: Boolean,
     },
@@ -20,11 +24,70 @@ const form = useForm({
     name: user.name,
     email: user.email,
 });
+
+const pop = ref();
+const menuVisible = ref(false);
+
+const toggle = (event) => {
+    pop.value.toggle(event);
+    menuVisible.value = !menuVisible.value;
+}
+
+// watch(() => usePage().props.auth.user.avatar);
+
 </script>
 
 <template>
-    <section>
-        <header>
+    <div>
+        <div class="font-semibold">
+            Update Profile Inforamtion
+        </div>
+        <div class="text-sm font-medium text-gray-500">
+            Update your account's profile information and email address.
+        </div>
+        <div class="grid grid-cols-3 items-center mt-10">
+            <form @submit.prevent="form.patch(route('profile.update'))" class="flex flex-col gap-y-4 col-span-2">
+                <InputGroup>
+                    <InputGroupAddon>
+                        <i class="pi pi-user" style="font-size: 0.8rem;"></i>
+                    </InputGroupAddon>
+                    <InputText placeholder="Username" size="small" variant="filled" v-model="form.name"/>
+                </InputGroup>
+                <InputGroup>
+                    <InputGroupAddon>
+                        <i class="pi pi-envelope" style="font-size: 0.8rem;"></i>
+                    </InputGroupAddon>
+                    <InputText placeholder="Email" size="small" variant="filled" v-model="form.email" :disabled="true"/>
+                </InputGroup>
+                <div>
+                    <Button label="Save" icon="save" class="w-36" type="submit"/>
+                </div>
+            </form>
+            <div class="flex flex-col justify-end items-center">
+                <div class="relative">
+                    <button class="absolute top-0 -translate-y-1/3 right-0 translate-x-1/3 rounded-full border w-8 h-8 bg-white hover:bg-gray-100" @click="toggle">
+                        <i class="pi" :class="menuVisible ? 'pi-times' : 'pi-ellipsis-v'"></i>
+                    </button>
+                    <Popover ref="pop" :dismissable="false">
+                        <div class="flex flex-col w-[10rem] p-1">
+                            <ChangeProfilePictureDialog />
+                            <Link :href="route('profile.avatar.remove')" method="post" as="button" class="flex items-center hover:bg-gray-200 p-2 rounded-md transition">
+                                <span class="pi pi-trash" style="font-size: 0.8rem;"></span>
+                                <div class="text-sm font-medium ms-2">Remove</div>
+                            </Link>
+                        </div>
+                    </Popover>
+                    <img :src="`/storage/${user.avatar}`" alt="profile_picture" class="rounded-xl shadow-sm border w-40 h-40" v-if="user.avatar">
+                    <div class="rounded-xl shadow-sm border w-40 h-40 flex items-center justify-center bg-gray-100 text-gray-400" v-else>
+                        <i class="pi pi-user" style="font-size: 2rem;"></i>
+                    </div>
+                </div>
+                <!-- <ChangeProfilePictureDialog /> -->
+            </div>
+        </div>
+    </div>
+    
+        <!-- <header>
             <h2 class="text-lg font-medium text-gray-900">Profile Information</h2>
 
             <p class="mt-1 text-sm text-gray-600">
@@ -97,6 +160,5 @@ const form = useForm({
                     <p v-if="form.recentlySuccessful" class="text-sm text-gray-600">Saved.</p>
                 </Transition>
             </div>
-        </form>
-    </section>
+        </form> -->
 </template>

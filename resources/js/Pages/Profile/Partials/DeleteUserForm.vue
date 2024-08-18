@@ -1,12 +1,9 @@
 <script setup>
-import DangerButton from '@/Components/DangerButton.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import Modal from '@/Components/Modal.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import InputText from 'primevue/inputtext';
 import { useForm } from '@inertiajs/vue3';
 import { nextTick, ref } from 'vue';
+import Button from '@/Components/TaskflowComponents/Button.vue';
+import Dialog from 'primevue/dialog';
 
 const confirmingUserDeletion = ref(false);
 const passwordInput = ref(null);
@@ -39,26 +36,60 @@ const closeModal = () => {
 
 <template>
     <section class="space-y-6">
-        <header>
-            <h2 class="text-lg font-medium text-gray-900">Delete Account</h2>
+        <div class="flex justify-between items-center">
+            <div class="basis-2/3">
+                <div class="font-semibold">Delete Account</div>
+                <div class="text-sm font-medium text-gray-500">
+                    Are you sure you want to delete your account?
+                    Once your account is deleted, all of its resources and data will be permanently deleted.
+                </div>
+            </div>
+            <div>
+                <Button label="Delete Account" icon="user-minus" class="bg-red-600" @click="confirmUserDeletion"/>
+            </div>
+        </div>
 
-            <p class="mt-1 text-sm text-gray-600">
-                Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting
-                your account, please download any data or information that you wish to retain.
-            </p>
-        </header>
+        <Dialog v-model:visible="confirmingUserDeletion" modal header="Delete account" :style="{ width: '35rem' }">
+            <template #header>
+                <div class="inline-flex items-center justify-center gap-2">
+                    <div class="bg-gray-700 text-white w-8 h-8 rounded-xl flex items-center justify-center">
+                        <i class="pi pi-trash" style="font-size: 0.8rem; "></i>
+                    </div>
+                    
+                    <span class="font-semibold whitespace-nowrap">Delete Account</span>
+                </div>
+            </template>
 
-        <DangerButton @click="confirmUserDeletion">Delete Account</DangerButton>
+            <div class="font-medium">
+                <div class="font-semibold">Are you sure you want to delete your account? Please type your password to confirm account deletation.</div>
+                
+                <div class="my-4">
+                    <InputText v-model="form.password" variant="filled" size="small" class="w-full" placeholder="Enter password"/>
+                </div>
 
-        <Modal :show="confirmingUserDeletion" @close="closeModal">
+                <div class="flex">
+                    <span class="font-semibold">Note:</span>
+                    <div class="font-medium ms-2">Once your account is deleted, all of its resources and data will be permanently deleted.</div>
+                </div>
+            </div>
+
+            
+
+            <template #footer>
+                <Button label="Cancel" icon="times" outline text @click="visible = false"/>
+                <Button label="Delete" icon="trash" @click="deleteUser" :class="{ 'opacity-25': form.processing }" :disabled="form.processing"/>
+            </template>
+        </Dialog>
+
+        <!-- <Modal :show="confirmingUserDeletion" @close="closeModal">
             <div class="p-6">
                 <h2 class="text-lg font-medium text-gray-900">
                     Are you sure you want to delete your account?
                 </h2>
 
                 <p class="mt-1 text-sm text-gray-600">
-                    Once your account is deleted, all of its resources and data will be permanently deleted. Please
-                    enter your password to confirm you would like to permanently delete your account.
+                    Are you sure you want to delete your account?
+                    Once your account is deleted, all of its resources and data will be permanently deleted.
                 </p>
 
                 <div class="mt-6">
@@ -90,6 +121,6 @@ const closeModal = () => {
                     </DangerButton>
                 </div>
             </div>
-        </Modal>
+        </Modal> -->
     </section>
 </template>

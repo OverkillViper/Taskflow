@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SubTask;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SubTaskController extends Controller
 {
@@ -29,6 +30,7 @@ class SubTaskController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->validate([
             'title' => 'required|string',
             'task_id' => 'required',
@@ -36,11 +38,13 @@ class SubTaskController extends Controller
 
         $task = Task::findOrFail($request->task_id);
 
-        $task->update([
-            'completed' => false,
-        ]);
-
-        $newSubTask = SubTask::create($data);
+        if(Auth::user()->id == $task->user_id) {
+            $task->update([
+                'completed' => false,
+            ]);
+    
+            $newSubTask = SubTask::create($data);
+        }
 
         if($newSubTask) {
             return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully created subordinate task']);
@@ -74,7 +78,9 @@ class SubTaskController extends Controller
             'title' => 'required|string',
         ]);
 
-        $updatedSubtask = $subtask->update($data);
+        if(Auth::user()->id == $subtask->task->user_id) {
+            $updatedSubtask = $subtask->update($data);
+        }
 
         if($updatedSubtask) {
             return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully created subordinate task']);
@@ -88,7 +94,9 @@ class SubTaskController extends Controller
      */
     public function destroy(SubTask $subtask)
     {
-        $deletedSubTask = $subtask->delete();
+        if(Auth::user()->id == $subtask->task->user_id) {
+            $deletedSubTask = $subtask->delete();
+        }
 
         if($deletedSubTask) {
             return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully deleted subordinate task']);
@@ -100,20 +108,19 @@ class SubTaskController extends Controller
     public function toggleSubTaskStatus(Request $request, SubTask $subtask) {
 
         // dd($request);
+        if(Auth::user()->id == $subtask->task->user_id) {
+            $updatedSubtask = $subtask->update([
+                'completed' => $request->completed,
+            ]);
 
-        $updatedSubtask = $subtask->update([
-            'completed' => $request->completed,
-        ]);
+            $task = $subtask->task;
 
-        $task = $subtask->task;
+            $allSubtasksCompleted = $task->subTasks()->where('completed', false)->count() === 0;
 
-        
-
-        $allSubtasksCompleted = $task->subTasks()->where('completed', false)->count() === 0;
-
-        $task->update([
-            'completed' => $allSubtasksCompleted
-        ]);
+            $task->update([
+                'completed' => $allSubtasksCompleted
+            ]);
+        }
 
         if($updatedSubtask) {
             return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully changed subordinate task status']);

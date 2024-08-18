@@ -1,10 +1,12 @@
 <script setup>
 import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
+import InputText from 'primevue/inputtext';
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
+import Password from 'primevue/password';
+import Button from '@/Components/TaskflowComponents/Button.vue';
+import ProgressSpinner from 'primevue/progressspinner';
 
 const form = useForm({
     name: '',
@@ -24,80 +26,56 @@ const submit = () => {
     <GuestLayout>
         <Head title="Register" />
 
-        <form @submit.prevent="submit">
-            <div>
-                <InputLabel for="name" value="Name" />
+        <div class="flex items-center justify-center h-96" v-if="form.processing">
+            <ProgressSpinner
+                style="width: 50px; height: 50px"
+                strokeWidth="3"
+                fill="transparent"
+                animationDuration="1s"
+                aria-label="Custom ProgressSpinner"
+            />
+        </div>
 
-                <TextInput
-                    id="name"
-                    type="text"
-                    class="mt-1 block w-full"
-                    v-model="form.name"
-                    required
-                    autofocus
-                    autocomplete="name"
-                />
+        <form @submit.prevent="submit" v-else>
+            <div class="font-semibold text-2xl">Register</div>
 
-                <InputError class="mt-2" :message="form.errors.name" />
+            <InputGroup class="mt-10">
+                <InputGroupAddon>
+                    <i class="pi pi-user" style="font-size: 0.8rem;"></i>
+                </InputGroupAddon>
+                <InputText placeholder="Name" size="small" variant="filled" v-model="form.name"/>
+            </InputGroup>
+            <InputGroup class="mt-4">
+                <InputGroupAddon>
+                    <i class="pi pi-envelope" style="font-size: 0.8rem;"></i>
+                </InputGroupAddon>
+                <InputText placeholder="Email" size="small" variant="filled" v-model="form.email"/>
+            </InputGroup>
+            <InputGroup class="mt-4">
+                <InputGroupAddon>
+                    <i class="pi pi-key" style="font-size: 0.8rem;"></i>
+                </InputGroupAddon>
+                <Password v-model="form.password" :feedback="false" toggleMask variant="filled" placeholder="Password"/>
+            </InputGroup>   
+            <InputGroup class="mt-4">
+                <InputGroupAddon>
+                    <i class="pi pi-unlock" style="font-size: 0.8rem;"></i>
+                </InputGroupAddon>
+                <Password v-model="form.password_confirmation" :feedback="false" toggleMask variant="filled" placeholder="Confirm Password"/>
+            </InputGroup>
+            <div class="flex justify-center mt-4">
+                <Button label="Register" icon="user-plus" :class="{ 'opacity-50': form.processing }" :disabled="form.processing"/>
             </div>
-
-            <div class="mt-4">
-                <InputLabel for="email" value="Email" />
-
-                <TextInput
-                    id="email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    v-model="form.email"
-                    required
-                    autocomplete="username"
-                />
-
-                <InputError class="mt-2" :message="form.errors.email" />
+            <hr class="my-8">
+            <div class="text-center text-gray-500 font-medium">
+                Already have an account?
             </div>
-
-            <div class="mt-4">
-                <InputLabel for="password" value="Password" />
-
-                <TextInput
-                    id="password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password"
-                    required
-                    autocomplete="new-password"
-                />
-
-                <InputError class="mt-2" :message="form.errors.password" />
-            </div>
-
-            <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
-
-                <TextInput
-                    id="password_confirmation"
-                    type="password"
-                    class="mt-1 block w-full"
-                    v-model="form.password_confirmation"
-                    required
-                    autocomplete="new-password"
-                />
-
-                <InputError class="mt-2" :message="form.errors.password_confirmation" />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link
-                    :href="route('login')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                    Already registered?
+            <div class="flex justify-center mt-4">
+                <Link :href="route('login')">
+                    <Button label="Sign In" icon="sign-in" :class="{ 'opacity-50': form.processing }" :disabled="form.processing"/>
                 </Link>
-
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
-                </PrimaryButton>
             </div>
         </form>
+        
     </GuestLayout>
 </template>

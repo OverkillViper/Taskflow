@@ -11,7 +11,7 @@ const taskGroups = $page.props.taskGroups;
 </script>
 
 <template>
-    <div class="flex flex-col bg-white shadow-md">
+    <div class="flex flex-col bg-white shadow-md shadow-gray-300">
         <div class="p-5 flex-grow">
             <Link href="/" class="flex items-center">
                 <img :src="'/images/logo.png'" alt="logo" class="w-8 aspect-square">
@@ -59,9 +59,6 @@ const taskGroups = $page.props.taskGroups;
             <div class="mt-4">
                 <CreateTagDialog class="w-full" />
             </div>
-        </div>
-        <div class="px-5 pb-5">
-            <SidebarItem icon="cog" label="Settings" href="dashboard"/>
         </div>
     </div>
 </template>

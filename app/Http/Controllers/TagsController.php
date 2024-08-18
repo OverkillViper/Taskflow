@@ -6,6 +6,7 @@ use App\Models\Tag;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Task;
+use Illuminate\Support\Facades\Auth;
 
 class TagsController extends Controller
 {
@@ -14,7 +15,7 @@ class TagsController extends Controller
      */
     public function index()
     {
-        $tags = Tag::all();
+        $tags = Tag::where('user_id', '=', Auth::user()->id)->get();
 
         $context = [
             'tags' => $tags,
@@ -39,6 +40,8 @@ class TagsController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:255'
         ]);
+
+        $data['user_id'] = Auth::user()->id;
 
         $newTag = Tag::create($data);
 
@@ -93,7 +96,9 @@ class TagsController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        $deletedTag = $tag->delete();
+        if(Auth::user()->id == $tag->user_id) {
+            $deletedTag = $tag->delete();
+        }
 
         if($deletedTag) {
             return redirect()->back()->with(['status' => 'success', 'message' => 'Successfully deleted tag']);

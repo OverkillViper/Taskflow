@@ -6,15 +6,17 @@ use App\Models\TaskGroup;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 
 class TaskGroupController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $groups = TaskGroup::withCount('tasks')->get();
+        $groups = TaskGroup::where('user_id', '=', Auth::user()->id)->withCount('tasks')->get();
 
         $context = [
             'groups' => $groups
@@ -41,6 +43,8 @@ class TaskGroupController extends Controller
             'color' => 'required|string|max:10'
         ]);
 
+        $data['user_id'] = Auth::user()->id;
+
         $newGroup = TaskGroup::create($data);
 
         if($newGroup) {
@@ -56,7 +60,7 @@ class TaskGroupController extends Controller
     public function show(TaskGroup $group)
     {
 
-        $tasks = Task::where('task_group_id', '=', $group->id)->with('taskGroup')
+        $tasks = Task::where('user_id', '=', Auth::user()->id)->where('task_group_id', '=', $group->id)->with('taskGroup')
                  ->withCount([
                     'subTasks', 
                     'subTasks as completed_subtasks_count' => function($query) {
@@ -105,7 +109,10 @@ class TaskGroupController extends Controller
      */
     public function destroy(TaskGroup $group)
     {
-        $deletedGroup = $group->delete();
+
+        if(Auth::user()->id == $group->user_id) {
+            $deletedGroup = $group->delete();
+        }
 
         if($deletedGroup) {
             return redirect()->route('groups.index')->with(['status' => 'success', 'message' => 'Successfully deleted group']);

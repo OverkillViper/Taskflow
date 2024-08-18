@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('task_groups', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('title');
             $table->string('color')->nullable();
             $table->timestamps();

@@ -8,12 +8,13 @@ use App\Models\TaskGroup;
 use App\Models\Task;
 use App\Models\Tag;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 {
     public function dashboard() {
 
-        $tasks = Task::with('taskGroup')
+        $tasks = Task::where('user_id', '=', Auth::user()->id)->with('taskGroup')
                 ->withCount([
                     'subTasks', 
                     'subTasks as completed_subtasks_count' => function($query) {
@@ -21,10 +22,10 @@ class FrontendController extends Controller
                     }
                 ])->orderBy('deadline', 'asc')->limit(3)->get();
 
-        $totalTasks     = Task::all()->count();
-        $pendingTasks   = Task::where('completed', false)->where('deadline', '>', Carbon::now())->count();
-        $missedTasks    = Task::where('completed', false)->where('deadline', '<', Carbon::now())->count();
-        $completedTasks = Task::where('completed', true)->count();
+        $totalTasks     = Task::where('user_id', '=', Auth::user()->id)->count();
+        $pendingTasks   = Task::where('user_id', '=', Auth::user()->id)->where('completed', false)->where('deadline', '>', Carbon::now())->count();
+        $missedTasks    = Task::where('user_id', '=', Auth::user()->id)->where('completed', false)->where('deadline', '<', Carbon::now())->count();
+        $completedTasks = Task::where('user_id', '=', Auth::user()->id)->where('completed', true)->count();
 
         $context = [
             'tasks'             => $tasks,
@@ -41,7 +42,7 @@ class FrontendController extends Controller
 
         $query = $request->input('q');
 
-        $tasks = Task::where('title', 'LIKE', "%{$query}%")
+        $tasks = Task::where('user_id', '=', Auth::user()->id)->where('title', 'LIKE', "%{$query}%")
                      ->orWhereHas('tags', function($q) use ($query) {
                         $q->where('name', 'LIKE', "%{$query}%");
                     })->withCount([
@@ -51,9 +52,9 @@ class FrontendController extends Controller
                         }
                     ])->paginate(4);
 
-        $taskGroups = TaskGroup::where('title', 'LIKE', "%{$query}%")->withCount('tasks')->get();
+        $taskGroups = TaskGroup::where('user_id', '=', Auth::user()->id)->where('title', 'LIKE', "%{$query}%")->withCount('tasks')->get();
 
-        $tags = Tag::where('name', 'LIKE', "%{$query}%")->get();
+        $tags = Tag::where('user_id', '=', Auth::user()->id)->where('name', 'LIKE', "%{$query}%")->get();
 
         $context = [
             'tasks'  => $tasks,

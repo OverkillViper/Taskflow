@@ -9,7 +9,7 @@ class TaskGroup extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'color'];
+    protected $fillable = ['title', 'color', 'user_id'];
 
     // Relationships
     public function tasks()
@@ -20,5 +20,10 @@ class TaskGroup extends Model
     public function getTaskCountAttribute()
     {
         return $this->tasks()->count();
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
