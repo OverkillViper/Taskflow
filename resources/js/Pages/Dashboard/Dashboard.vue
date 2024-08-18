@@ -11,13 +11,22 @@ const props = defineProps({
     pendingTasks    : Number,
     completedTasks  : Number,
     missedTasks     : Number,
+    auth            : Object
 })
+
+
 
 </script>
 
 <template>
 <CoreLayout title="Dashboard">
-    <div class="flex gap-6 py-6 px-10">
+
+    <div class="mx-auto text-center my-6">
+        <div class="text-lg font-semibold">Welcome Back</div>
+        <div class="text-sm">{{ auth.user.name }}</div>
+    </div>
+
+    <div class="flex gap-6 my-4 px-10">
         <div class="basis-3/5">
             <div class="flex items-center justify-between">
                 <div class="text-lg font-semibold">Task at hand</div>
