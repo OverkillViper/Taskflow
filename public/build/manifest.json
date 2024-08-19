@@ -1,13 +1,13 @@
 {
-  "_Button-CvWjfPce.js": {
-    "file": "assets/Button-CvWjfPce.js",
+  "_Button-Dzg27awM.js": {
+    "file": "assets/Button-Dzg27awM.js",
     "name": "Button",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_CoreLayout-CtRmCc6J.js": {
-    "file": "assets/CoreLayout-CtRmCc6J.js",
+  "_CoreLayout-BRYKIU0j.js": {
+    "file": "assets/CoreLayout-BRYKIU0j.js",
     "name": "CoreLayout",
     "imports": [
       "resources/js/Pages/Dashboard/Sidebar.vue",
@@ -19,8 +19,8 @@
     "file": "assets/GuestLayout-D8LSQEyy.css",
     "src": "_GuestLayout-!~{00H}~.js"
   },
-  "_GuestLayout-BDwLYkNw.js": {
-    "file": "assets/GuestLayout-BDwLYkNw.js",
+  "_GuestLayout-C8p8fGdw.js": {
+    "file": "assets/GuestLayout-C8p8fGdw.js",
     "name": "GuestLayout",
     "imports": [
       "resources/js/app.js",
@@ -30,16 +30,16 @@
       "assets/GuestLayout-D8LSQEyy.css"
     ]
   },
-  "_PrimaryButton-DawvEU4-.js": {
-    "file": "assets/PrimaryButton-DawvEU4-.js",
+  "_PrimaryButton-DKej7UI_.js": {
+    "file": "assets/PrimaryButton-DKej7UI_.js",
     "name": "PrimaryButton",
     "imports": [
       "__plugin-vue_export-helper-DlAUqK2U.js",
       "resources/js/app.js"
     ]
   },
-  "_TextInput-C4fex7gY.js": {
-    "file": "assets/TextInput-C4fex7gY.js",
+  "_TextInput-CuBg7_co.js": {
+    "file": "assets/TextInput-CuBg7_co.js",
     "name": "TextInput",
     "imports": [
       "resources/js/app.js"
@@ -53,110 +53,110 @@
     "file": "assets/differenceInCalendarDays-Bp0PEmVY.js",
     "name": "differenceInCalendarDays"
   },
-  "_index-Apsg4YZL.js": {
-    "file": "assets/index-Apsg4YZL.js",
+  "_index-2Eug0zuj.js": {
+    "file": "assets/index-2Eug0zuj.js",
     "name": "index",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_index-B4N5In7p.js": {
-    "file": "assets/index-B4N5In7p.js",
+  "_index-5mnlzHN0.js": {
+    "file": "assets/index-5mnlzHN0.js",
     "name": "index",
     "imports": [
-      "resources/js/app.js",
-      "_index-Apsg4YZL.js",
-      "_index-DBEHcVIn.js"
+      "resources/js/app.js"
     ]
   },
-  "_index-BFttAmFr.js": {
-    "file": "assets/index-BFttAmFr.js",
+  "_index-AGYS_y_m.js": {
+    "file": "assets/index-AGYS_y_m.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_index-AQ1KFhP7.js": {
+    "file": "assets/index-AQ1KFhP7.js",
     "name": "index",
     "imports": [
       "_differenceInCalendarDays-Bp0PEmVY.js",
       "resources/js/app.js"
     ]
   },
-  "_index-BLMopepL.js": {
-    "file": "assets/index-BLMopepL.js",
-    "name": "index",
-    "imports": [
-      "resources/js/app.js"
-    ]
-  },
-  "_index-BwgfkKKz.js": {
-    "file": "assets/index-BwgfkKKz.js",
+  "_index-B93N0HL1.js": {
+    "file": "assets/index-B93N0HL1.js",
     "name": "index",
     "imports": [
       "resources/js/app.js",
-      "_index-BLMopepL.js",
-      "_index-DBEHcVIn.js"
+      "_index-Db0TWXcE.js",
+      "_index-DtHUOGeR.js"
     ]
   },
-  "_index-ByIddvMy.js": {
-    "file": "assets/index-ByIddvMy.js",
-    "name": "index",
-    "imports": [
-      "resources/js/app.js"
-    ]
-  },
-  "_index-D0cC4ajB.js": {
-    "file": "assets/index-D0cC4ajB.js",
-    "name": "index",
-    "imports": [
-      "resources/js/app.js"
-    ]
-  },
-  "_index-D9SfEm0a.js": {
-    "file": "assets/index-D9SfEm0a.js",
-    "name": "index",
-    "imports": [
-      "resources/js/app.js"
-    ]
-  },
-  "_index-DBEHcVIn.js": {
-    "file": "assets/index-DBEHcVIn.js",
-    "name": "index",
-    "imports": [
-      "resources/js/app.js"
-    ]
-  },
-  "_index-DKL4b50C.js": {
-    "file": "assets/index-DKL4b50C.js",
+  "_index-DKD77b8F.js": {
+    "file": "assets/index-DKD77b8F.js",
     "name": "index",
     "imports": [
       "resources/js/app.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js"
+      "_index-DtHUOGeR.js"
     ]
   },
-  "_index-D_-uy2JS.js": {
-    "file": "assets/index-D_-uy2JS.js",
+  "_index-DRa64MC3.js": {
+    "file": "assets/index-DRa64MC3.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.js",
+      "_index-2Eug0zuj.js",
+      "_index-DtHUOGeR.js"
+    ]
+  },
+  "_index-Db0TWXcE.js": {
+    "file": "assets/index-Db0TWXcE.js",
     "name": "index",
     "imports": [
       "resources/js/app.js"
     ]
   },
-  "_index-Dnbm_lj9.js": {
-    "file": "assets/index-Dnbm_lj9.js",
+  "_index-DerHbtK6.js": {
+    "file": "assets/index-DerHbtK6.js",
     "name": "index",
     "imports": [
       "resources/js/app.js",
-      "_index-DBEHcVIn.js"
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js"
     ]
   },
-  "_index-LB_Bmhku.js": {
-    "file": "assets/index-LB_Bmhku.js",
+  "_index-DhFri6lC.js": {
+    "file": "assets/index-DhFri6lC.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_index-DkxjNOHD.js": {
+    "file": "assets/index-DkxjNOHD.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_index-DtHUOGeR.js": {
+    "file": "assets/index-DtHUOGeR.js",
+    "name": "index",
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "_index-TyAznqa5.js": {
+    "file": "assets/index-TyAznqa5.js",
     "name": "index",
     "imports": [
       "resources/js/app.js",
-      "_index-DKL4b50C.js",
-      "_index-Apsg4YZL.js",
-      "_index-DBEHcVIn.js"
+      "_index-DerHbtK6.js",
+      "_index-2Eug0zuj.js",
+      "_index-DtHUOGeR.js"
     ]
   },
-  "_index-UBPspzhT.js": {
-    "file": "assets/index-UBPspzhT.js",
+  "_index-eoBlWJln.js": {
+    "file": "assets/index-eoBlWJln.js",
     "name": "index",
     "imports": [
       "resources/js/app.js"
@@ -203,93 +203,93 @@
     "src": "resources/css/CriqueGrotesk.ttf"
   },
   "resources/js/Pages/Auth/ConfirmPassword.vue": {
-    "file": "assets/ConfirmPassword-BHAAVmyE.js",
+    "file": "assets/ConfirmPassword-MYQK6TpK.js",
     "name": "ConfirmPassword",
     "src": "resources/js/Pages/Auth/ConfirmPassword.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_GuestLayout-BDwLYkNw.js",
-      "_TextInput-C4fex7gY.js",
-      "_PrimaryButton-DawvEU4-.js",
+      "_GuestLayout-C8p8fGdw.js",
+      "_TextInput-CuBg7_co.js",
+      "_PrimaryButton-DKej7UI_.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ]
   },
   "resources/js/Pages/Auth/ForgotPassword.vue": {
-    "file": "assets/ForgotPassword-BxQoK4BY.js",
+    "file": "assets/ForgotPassword-CaGk6FIm.js",
     "name": "ForgotPassword",
     "src": "resources/js/Pages/Auth/ForgotPassword.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_GuestLayout-BDwLYkNw.js",
-      "_TextInput-C4fex7gY.js",
-      "_PrimaryButton-DawvEU4-.js",
+      "_GuestLayout-C8p8fGdw.js",
+      "_TextInput-CuBg7_co.js",
+      "_PrimaryButton-DKej7UI_.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ]
   },
   "resources/js/Pages/Auth/Login.vue": {
-    "file": "assets/Login-Dk3LcV3Q.js",
+    "file": "assets/Login-iEEoqQJn.js",
     "name": "Login",
     "src": "resources/js/Pages/Auth/Login.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_GuestLayout-BDwLYkNw.js",
-      "_index-D0cC4ajB.js",
-      "_index-Apsg4YZL.js",
-      "_index-D9SfEm0a.js",
-      "_index-B4N5In7p.js",
-      "_Button-CvWjfPce.js",
-      "_index-ByIddvMy.js",
+      "_GuestLayout-C8p8fGdw.js",
+      "_index-eoBlWJln.js",
+      "_index-2Eug0zuj.js",
+      "_index-DhFri6lC.js",
+      "_index-DRa64MC3.js",
+      "_Button-Dzg27awM.js",
+      "_index-DkxjNOHD.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
-      "_index-DBEHcVIn.js"
+      "_index-DtHUOGeR.js"
     ]
   },
   "resources/js/Pages/Auth/Register.vue": {
-    "file": "assets/Register-CrD160W0.js",
+    "file": "assets/Register-CzTNGeWV.js",
     "name": "Register",
     "src": "resources/js/Pages/Auth/Register.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_GuestLayout-BDwLYkNw.js",
-      "_index-Apsg4YZL.js",
-      "_index-D9SfEm0a.js",
-      "_index-B4N5In7p.js",
-      "_Button-CvWjfPce.js",
-      "_index-ByIddvMy.js",
+      "_GuestLayout-C8p8fGdw.js",
+      "_index-2Eug0zuj.js",
+      "_index-DhFri6lC.js",
+      "_index-DRa64MC3.js",
+      "_Button-Dzg27awM.js",
+      "_index-DkxjNOHD.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
-      "_index-DBEHcVIn.js"
+      "_index-DtHUOGeR.js"
     ]
   },
   "resources/js/Pages/Auth/ResetPassword.vue": {
-    "file": "assets/ResetPassword-BmgAOvWq.js",
+    "file": "assets/ResetPassword-_9lsD_Uf.js",
     "name": "ResetPassword",
     "src": "resources/js/Pages/Auth/ResetPassword.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_GuestLayout-BDwLYkNw.js",
-      "_TextInput-C4fex7gY.js",
-      "_PrimaryButton-DawvEU4-.js",
+      "_GuestLayout-C8p8fGdw.js",
+      "_TextInput-CuBg7_co.js",
+      "_PrimaryButton-DKej7UI_.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ]
   },
   "resources/js/Pages/Auth/VerifyEmail.vue": {
-    "file": "assets/VerifyEmail-DZCFa-nU.js",
+    "file": "assets/VerifyEmail-D4Dvqu-Y.js",
     "name": "VerifyEmail",
     "src": "resources/js/Pages/Auth/VerifyEmail.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_GuestLayout-BDwLYkNw.js",
-      "_PrimaryButton-DawvEU4-.js",
+      "_GuestLayout-C8p8fGdw.js",
+      "_PrimaryButton-DKej7UI_.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ]
   },
   "resources/js/Pages/Dashboard.vue": {
-    "file": "assets/Dashboard-I4swcYph.js",
+    "file": "assets/Dashboard-DfbWuldB.js",
     "name": "Dashboard",
     "src": "resources/js/Pages/Dashboard.vue",
     "isDynamicEntry": true,
@@ -299,7 +299,7 @@
     ]
   },
   "resources/js/Pages/Dashboard/Calendar.vue": {
-    "file": "assets/Calendar-D2z1ZML6.js",
+    "file": "assets/Calendar-GLdnc915.js",
     "name": "Calendar",
     "src": "resources/js/Pages/Dashboard/Calendar.vue",
     "isDynamicEntry": true,
@@ -309,52 +309,52 @@
     ]
   },
   "resources/js/Pages/Dashboard/Dashboard.vue": {
-    "file": "assets/Dashboard-Cy1GwBFE.js",
+    "file": "assets/Dashboard-nhJt-npS.js",
     "name": "Dashboard",
     "src": "resources/js/Pages/Dashboard/Dashboard.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_CoreLayout-CtRmCc6J.js",
+      "_CoreLayout-BRYKIU0j.js",
       "resources/js/Pages/Dashboard/Calendar.vue",
       "resources/js/Pages/Tasks/TaskCard.vue",
       "resources/js/app.js",
       "resources/js/Pages/Dashboard/NoRecordMessage.vue",
       "resources/js/Pages/Dashboard/Sidebar.vue",
       "resources/js/Pages/Tasks/CreateTaskDialog.vue",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
-      "_index-LB_Bmhku.js",
-      "_index-DBEHcVIn.js",
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
+      "_index-TyAznqa5.js",
+      "_index-DtHUOGeR.js",
       "resources/js/Pages/Groups/CreateGroupDialog.vue",
-      "_index-Dnbm_lj9.js",
+      "_index-DKD77b8F.js",
       "resources/js/Pages/Tags/CreateTagDialog.vue",
       "resources/js/Pages/Dashboard/Header.vue",
-      "_index-BwgfkKKz.js",
+      "_index-B93N0HL1.js",
       "_differenceInCalendarDays-Bp0PEmVY.js",
-      "_index-BFttAmFr.js",
+      "_index-AQ1KFhP7.js",
       "resources/js/Pages/Tasks/DeleteTaskDialog.vue",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ]
   },
   "resources/js/Pages/Dashboard/Header.vue": {
-    "file": "assets/Header-xxCLmLUu.js",
+    "file": "assets/Header-CbUgNyKg.js",
     "name": "Header",
     "src": "resources/js/Pages/Dashboard/Header.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index-Apsg4YZL.js",
-      "_Button-CvWjfPce.js",
-      "_index-BwgfkKKz.js",
-      "_index-BLMopepL.js",
-      "_index-DBEHcVIn.js"
+      "_index-2Eug0zuj.js",
+      "_Button-Dzg27awM.js",
+      "_index-B93N0HL1.js",
+      "_index-Db0TWXcE.js",
+      "_index-DtHUOGeR.js"
     ]
   },
   "resources/js/Pages/Dashboard/NoRecordMessage.vue": {
-    "file": "assets/NoRecordMessage-Bo1sO4dy.js",
+    "file": "assets/NoRecordMessage-BEnC2eg0.js",
     "name": "NoRecordMessage",
     "src": "resources/js/Pages/Dashboard/NoRecordMessage.vue",
     "isDynamicEntry": true,
@@ -364,42 +364,42 @@
     ]
   },
   "resources/js/Pages/Dashboard/Notifications.vue": {
-    "file": "assets/Notifications-DJAh3Zdb.js",
+    "file": "assets/Notifications-8asn5sQV.js",
     "name": "Notifications",
     "src": "resources/js/Pages/Dashboard/Notifications.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_index-D_-uy2JS.js",
+      "_index-5mnlzHN0.js",
       "resources/js/app.js"
     ]
   },
   "resources/js/Pages/Dashboard/SearchResult.vue": {
-    "file": "assets/SearchResult-DbVJlzX1.js",
+    "file": "assets/SearchResult-BcTvDlSO.js",
     "name": "SearchResult",
     "src": "resources/js/Pages/Dashboard/SearchResult.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_CoreLayout-CtRmCc6J.js",
+      "_CoreLayout-BRYKIU0j.js",
       "resources/js/app.js",
-      "_index-LB_Bmhku.js",
+      "_index-TyAznqa5.js",
       "resources/js/Pages/Tasks/TaskCard.vue",
       "resources/js/Pages/Groups/GroupCard.vue",
       "resources/js/Pages/Tags/TagCard.vue",
       "resources/js/Pages/Dashboard/NoRecordMessage.vue",
-      "_index-D_-uy2JS.js",
+      "_index-5mnlzHN0.js",
       "resources/js/Pages/Dashboard/Sidebar.vue",
       "resources/js/Pages/Tasks/CreateTaskDialog.vue",
-      "_index-DKL4b50C.js",
-      "_index-BLMopepL.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
+      "_index-DerHbtK6.js",
+      "_index-Db0TWXcE.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
       "resources/js/Pages/Groups/CreateGroupDialog.vue",
-      "_index-Dnbm_lj9.js",
-      "_index-DBEHcVIn.js",
+      "_index-DKD77b8F.js",
+      "_index-DtHUOGeR.js",
       "resources/js/Pages/Tags/CreateTagDialog.vue",
       "resources/js/Pages/Dashboard/Header.vue",
-      "_index-BwgfkKKz.js",
-      "_index-BFttAmFr.js",
+      "_index-B93N0HL1.js",
+      "_index-AQ1KFhP7.js",
       "_differenceInCalendarDays-Bp0PEmVY.js",
       "resources/js/Pages/Tasks/DeleteTaskDialog.vue",
       "resources/js/Pages/Groups/DeleteGroupDialog.vue",
@@ -407,7 +407,7 @@
     ]
   },
   "resources/js/Pages/Dashboard/Sidebar.vue": {
-    "file": "assets/Sidebar-BcZRmOcQ.js",
+    "file": "assets/Sidebar-C-1tNL6y.js",
     "name": "Sidebar",
     "src": "resources/js/Pages/Dashboard/Sidebar.vue",
     "isDynamicEntry": true,
@@ -416,276 +416,276 @@
       "resources/js/Pages/Tasks/CreateTaskDialog.vue",
       "resources/js/Pages/Groups/CreateGroupDialog.vue",
       "resources/js/Pages/Tags/CreateTagDialog.vue",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
-      "_index-LB_Bmhku.js",
-      "_index-DBEHcVIn.js",
-      "_index-Dnbm_lj9.js"
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
+      "_index-TyAznqa5.js",
+      "_index-DtHUOGeR.js",
+      "_index-DKD77b8F.js"
     ]
   },
   "resources/js/Pages/Groups/CreateGroupDialog.vue": {
-    "file": "assets/CreateGroupDialog-zx-etHpJ.js",
+    "file": "assets/CreateGroupDialog-DkFXp3yV.js",
     "name": "CreateGroupDialog",
     "src": "resources/js/Pages/Groups/CreateGroupDialog.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index-DKL4b50C.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
-      "_index-Dnbm_lj9.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_index-DBEHcVIn.js"
+      "_index-DerHbtK6.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
+      "_index-DKD77b8F.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_index-DtHUOGeR.js"
     ]
   },
   "resources/js/Pages/Groups/DeleteGroupDialog.vue": {
-    "file": "assets/DeleteGroupDialog-DPkR2I12.js",
+    "file": "assets/DeleteGroupDialog-AiNY4b_6.js",
     "name": "DeleteGroupDialog",
     "src": "resources/js/Pages/Groups/DeleteGroupDialog.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_index-DKL4b50C.js",
-      "_Button-CvWjfPce.js",
+      "_index-DerHbtK6.js",
+      "_Button-Dzg27awM.js",
       "resources/js/app.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js"
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js"
     ]
   },
   "resources/js/Pages/Groups/EditGroupDialog.vue": {
-    "file": "assets/EditGroupDialog-DsDdVZfL.js",
+    "file": "assets/EditGroupDialog-DU0x05YI.js",
     "name": "EditGroupDialog",
     "src": "resources/js/Pages/Groups/EditGroupDialog.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index-DKL4b50C.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
-      "_index-Dnbm_lj9.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_index-DBEHcVIn.js"
+      "_index-DerHbtK6.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
+      "_index-DKD77b8F.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_index-DtHUOGeR.js"
     ]
   },
   "resources/js/Pages/Groups/GroupCard.vue": {
-    "file": "assets/GroupCard-C5eWp8zX.js",
+    "file": "assets/GroupCard-lhjxKsp3.js",
     "name": "GroupCard",
     "src": "resources/js/Pages/Groups/GroupCard.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
       "resources/js/Pages/Groups/DeleteGroupDialog.vue",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_Button-CvWjfPce.js"
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_Button-Dzg27awM.js"
     ]
   },
   "resources/js/Pages/Groups/GroupDetails.vue": {
-    "file": "assets/GroupDetails-ioLh2gMA.js",
+    "file": "assets/GroupDetails-BtiaCbbo.js",
     "name": "GroupDetails",
     "src": "resources/js/Pages/Groups/GroupDetails.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_CoreLayout-CtRmCc6J.js",
+      "_CoreLayout-BRYKIU0j.js",
       "resources/js/Pages/Groups/EditGroupDialog.vue",
       "resources/js/Pages/Groups/DeleteGroupDialog.vue",
       "resources/js/Pages/Tasks/TaskCard.vue",
       "resources/js/Pages/Dashboard/NoRecordMessage.vue",
-      "_index-UBPspzhT.js",
+      "_index-AGYS_y_m.js",
       "resources/js/app.js",
       "resources/js/Pages/Dashboard/Sidebar.vue",
       "resources/js/Pages/Tasks/CreateTaskDialog.vue",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
-      "_index-LB_Bmhku.js",
-      "_index-DBEHcVIn.js",
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
+      "_index-TyAznqa5.js",
+      "_index-DtHUOGeR.js",
       "resources/js/Pages/Groups/CreateGroupDialog.vue",
-      "_index-Dnbm_lj9.js",
+      "_index-DKD77b8F.js",
       "resources/js/Pages/Tags/CreateTagDialog.vue",
       "resources/js/Pages/Dashboard/Header.vue",
-      "_index-BwgfkKKz.js",
-      "_index-BFttAmFr.js",
+      "_index-B93N0HL1.js",
+      "_index-AQ1KFhP7.js",
       "_differenceInCalendarDays-Bp0PEmVY.js",
       "resources/js/Pages/Tasks/DeleteTaskDialog.vue",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ]
   },
   "resources/js/Pages/Groups/Index.vue": {
-    "file": "assets/Index-Cm9ffd1X.js",
+    "file": "assets/Index-qHFRYL4s.js",
     "name": "Index",
     "src": "resources/js/Pages/Groups/Index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_CoreLayout-CtRmCc6J.js",
+      "_CoreLayout-BRYKIU0j.js",
       "resources/js/app.js",
       "resources/js/Pages/Dashboard/NoRecordMessage.vue",
       "resources/js/Pages/Groups/GroupCard.vue",
       "resources/js/Pages/Dashboard/Sidebar.vue",
       "resources/js/Pages/Tasks/CreateTaskDialog.vue",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
-      "_index-LB_Bmhku.js",
-      "_index-DBEHcVIn.js",
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
+      "_index-TyAznqa5.js",
+      "_index-DtHUOGeR.js",
       "resources/js/Pages/Groups/CreateGroupDialog.vue",
-      "_index-Dnbm_lj9.js",
+      "_index-DKD77b8F.js",
       "resources/js/Pages/Tags/CreateTagDialog.vue",
       "resources/js/Pages/Dashboard/Header.vue",
-      "_index-BwgfkKKz.js",
+      "_index-B93N0HL1.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
       "resources/js/Pages/Groups/DeleteGroupDialog.vue"
     ]
   },
   "resources/js/Pages/Profile/Edit.vue": {
-    "file": "assets/Edit-DlF1V9m2.js",
+    "file": "assets/Edit-Du7qfrQh.js",
     "name": "Edit",
     "src": "resources/js/Pages/Profile/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_CoreLayout-CtRmCc6J.js",
+      "_CoreLayout-BRYKIU0j.js",
       "resources/js/Pages/Profile/Partials/DeleteUserForm.vue",
       "resources/js/Pages/Profile/Partials/UpdatePasswordForm.vue",
       "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.vue",
       "resources/js/app.js",
       "resources/js/Pages/Dashboard/Sidebar.vue",
       "resources/js/Pages/Tasks/CreateTaskDialog.vue",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
-      "_index-LB_Bmhku.js",
-      "_index-DBEHcVIn.js",
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
+      "_index-TyAznqa5.js",
+      "_index-DtHUOGeR.js",
       "resources/js/Pages/Groups/CreateGroupDialog.vue",
-      "_index-Dnbm_lj9.js",
+      "_index-DKD77b8F.js",
       "resources/js/Pages/Tags/CreateTagDialog.vue",
       "resources/js/Pages/Dashboard/Header.vue",
-      "_index-BwgfkKKz.js",
-      "_index-B4N5In7p.js",
-      "_index-D9SfEm0a.js",
+      "_index-B93N0HL1.js",
+      "_index-DRa64MC3.js",
+      "_index-DhFri6lC.js",
       "resources/js/Pages/Profile/Partials/ChangeProfilePictureDialog.vue",
-      "_index-UBPspzhT.js",
+      "_index-AGYS_y_m.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ]
   },
   "resources/js/Pages/Profile/Partials/ChangeProfilePictureDialog.vue": {
-    "file": "assets/ChangeProfilePictureDialog-p2jo3fEP.js",
+    "file": "assets/ChangeProfilePictureDialog-BFgDLKcb.js",
     "name": "ChangeProfilePictureDialog",
     "src": "resources/js/Pages/Profile/Partials/ChangeProfilePictureDialog.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Button-CvWjfPce.js",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_index-UBPspzhT.js",
+      "_Button-Dzg27awM.js",
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_index-AGYS_y_m.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
-      "_index-BLMopepL.js"
+      "_index-Db0TWXcE.js"
     ],
     "css": [
-      "assets/ChangeProfilePictureDialog-DvuqdHbu.css"
+      "assets/ChangeProfilePictureDialog-zTwRZHjs.css"
     ]
   },
   "resources/js/Pages/Profile/Partials/DeleteUserForm.vue": {
-    "file": "assets/DeleteUserForm-DIu7__cS.js",
+    "file": "assets/DeleteUserForm-CY33Ee0e.js",
     "name": "DeleteUserForm",
     "src": "resources/js/Pages/Profile/Partials/DeleteUserForm.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_index-Apsg4YZL.js",
+      "_index-2Eug0zuj.js",
       "resources/js/app.js",
-      "_Button-CvWjfPce.js",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js"
+      "_Button-Dzg27awM.js",
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js"
     ]
   },
   "resources/js/Pages/Profile/Partials/UpdatePasswordForm.vue": {
-    "file": "assets/UpdatePasswordForm-BnfwYfa6.js",
+    "file": "assets/UpdatePasswordForm-DfmUgRxj.js",
     "name": "UpdatePasswordForm",
     "src": "resources/js/Pages/Profile/Partials/UpdatePasswordForm.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_Button-CvWjfPce.js",
-      "_index-B4N5In7p.js",
-      "_index-Apsg4YZL.js",
-      "_index-DBEHcVIn.js"
+      "_Button-Dzg27awM.js",
+      "_index-DRa64MC3.js",
+      "_index-2Eug0zuj.js",
+      "_index-DtHUOGeR.js"
     ]
   },
   "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.vue": {
-    "file": "assets/UpdateProfileInformationForm-B3goh1BL.js",
+    "file": "assets/UpdateProfileInformationForm-4I00Hrfx.js",
     "name": "UpdateProfileInformationForm",
     "src": "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index-Apsg4YZL.js",
-      "_index-D9SfEm0a.js",
-      "_Button-CvWjfPce.js",
+      "_index-2Eug0zuj.js",
+      "_index-DhFri6lC.js",
+      "_Button-Dzg27awM.js",
       "resources/js/Pages/Profile/Partials/ChangeProfilePictureDialog.vue",
-      "_index-BwgfkKKz.js",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_index-UBPspzhT.js",
+      "_index-B93N0HL1.js",
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_index-AGYS_y_m.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
-      "_index-DBEHcVIn.js"
+      "_index-DtHUOGeR.js"
     ]
   },
   "resources/js/Pages/Tags/CreateTagDialog.vue": {
-    "file": "assets/CreateTagDialog-DxIz-JpK.js",
+    "file": "assets/CreateTagDialog-rQcVbjXM.js",
     "name": "CreateTagDialog",
     "src": "resources/js/Pages/Tags/CreateTagDialog.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index-DKL4b50C.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js"
+      "_index-DerHbtK6.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js"
     ]
   },
   "resources/js/Pages/Tags/Index.vue": {
-    "file": "assets/Index-B7PfSEz3.js",
+    "file": "assets/Index-Bt3rKHd2.js",
     "name": "Index",
     "src": "resources/js/Pages/Tags/Index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_CoreLayout-CtRmCc6J.js",
+      "_CoreLayout-BRYKIU0j.js",
       "resources/js/Pages/Dashboard/NoRecordMessage.vue",
       "resources/js/Pages/Tags/TagCard.vue",
       "resources/js/app.js",
       "resources/js/Pages/Dashboard/Sidebar.vue",
       "resources/js/Pages/Tasks/CreateTaskDialog.vue",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
-      "_index-LB_Bmhku.js",
-      "_index-DBEHcVIn.js",
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
+      "_index-TyAznqa5.js",
+      "_index-DtHUOGeR.js",
       "resources/js/Pages/Groups/CreateGroupDialog.vue",
-      "_index-Dnbm_lj9.js",
+      "_index-DKD77b8F.js",
       "resources/js/Pages/Tags/CreateTagDialog.vue",
       "resources/js/Pages/Dashboard/Header.vue",
-      "_index-BwgfkKKz.js",
+      "_index-B93N0HL1.js",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ]
   },
   "resources/js/Pages/Tags/TagCard.vue": {
-    "file": "assets/TagCard-DY-GUNuf.js",
+    "file": "assets/TagCard-ZrrfbzwD.js",
     "name": "TagCard",
     "src": "resources/js/Pages/Tags/TagCard.vue",
     "isDynamicEntry": true,
@@ -694,38 +694,38 @@
     ]
   },
   "resources/js/Pages/Tags/TagDetails.vue": {
-    "file": "assets/TagDetails-i7BfevOh.js",
+    "file": "assets/TagDetails-OXFGb2hh.js",
     "name": "TagDetails",
     "src": "resources/js/Pages/Tags/TagDetails.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_CoreLayout-CtRmCc6J.js",
+      "_CoreLayout-BRYKIU0j.js",
       "resources/js/Pages/Tasks/TaskCard.vue",
       "resources/js/Pages/Dashboard/NoRecordMessage.vue",
-      "_index-UBPspzhT.js",
+      "_index-AGYS_y_m.js",
       "resources/js/app.js",
       "resources/js/Pages/Dashboard/Sidebar.vue",
       "resources/js/Pages/Tasks/CreateTaskDialog.vue",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
-      "_index-LB_Bmhku.js",
-      "_index-DBEHcVIn.js",
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
+      "_index-TyAznqa5.js",
+      "_index-DtHUOGeR.js",
       "resources/js/Pages/Groups/CreateGroupDialog.vue",
-      "_index-Dnbm_lj9.js",
+      "_index-DKD77b8F.js",
       "resources/js/Pages/Tags/CreateTagDialog.vue",
       "resources/js/Pages/Dashboard/Header.vue",
-      "_index-BwgfkKKz.js",
-      "_index-BFttAmFr.js",
+      "_index-B93N0HL1.js",
+      "_index-AQ1KFhP7.js",
       "_differenceInCalendarDays-Bp0PEmVY.js",
       "resources/js/Pages/Tasks/DeleteTaskDialog.vue",
       "__plugin-vue_export-helper-DlAUqK2U.js"
     ]
   },
   "resources/js/Pages/Tags/TaskTagCard.vue": {
-    "file": "assets/TaskTagCard-BdWy8VWn.js",
+    "file": "assets/TaskTagCard-KVBh-7uy.js",
     "name": "TaskTagCard",
     "src": "resources/js/Pages/Tags/TaskTagCard.vue",
     "isDynamicEntry": true,
@@ -734,233 +734,233 @@
     ]
   },
   "resources/js/Pages/Tasks/CompletedTasks.vue": {
-    "file": "assets/CompletedTasks-2p7t-mah.js",
+    "file": "assets/CompletedTasks-CTmOvYqq.js",
     "name": "CompletedTasks",
     "src": "resources/js/Pages/Tasks/CompletedTasks.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_CoreLayout-CtRmCc6J.js",
+      "_CoreLayout-BRYKIU0j.js",
       "resources/js/Pages/Dashboard/NoRecordMessage.vue",
       "resources/js/Pages/Tasks/TaskCard.vue",
       "resources/js/app.js",
       "resources/js/Pages/Dashboard/Sidebar.vue",
       "resources/js/Pages/Tasks/CreateTaskDialog.vue",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
-      "_index-LB_Bmhku.js",
-      "_index-DBEHcVIn.js",
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
+      "_index-TyAznqa5.js",
+      "_index-DtHUOGeR.js",
       "resources/js/Pages/Groups/CreateGroupDialog.vue",
-      "_index-Dnbm_lj9.js",
+      "_index-DKD77b8F.js",
       "resources/js/Pages/Tags/CreateTagDialog.vue",
       "resources/js/Pages/Dashboard/Header.vue",
-      "_index-BwgfkKKz.js",
+      "_index-B93N0HL1.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
-      "_index-BFttAmFr.js",
+      "_index-AQ1KFhP7.js",
       "_differenceInCalendarDays-Bp0PEmVY.js",
       "resources/js/Pages/Tasks/DeleteTaskDialog.vue"
     ]
   },
   "resources/js/Pages/Tasks/CreateTaskDialog.vue": {
-    "file": "assets/CreateTaskDialog-64WUHAaI.js",
+    "file": "assets/CreateTaskDialog-CXRGQYjP.js",
     "name": "CreateTaskDialog",
     "src": "resources/js/Pages/Tasks/CreateTaskDialog.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index-DKL4b50C.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
-      "_index-LB_Bmhku.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_index-DBEHcVIn.js"
+      "_index-DerHbtK6.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
+      "_index-TyAznqa5.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_index-DtHUOGeR.js"
     ]
   },
   "resources/js/Pages/Tasks/DeleteTaskDialog.vue": {
-    "file": "assets/DeleteTaskDialog-CDW8NQUq.js",
+    "file": "assets/DeleteTaskDialog-B4rHo80b.js",
     "name": "DeleteTaskDialog",
     "src": "resources/js/Pages/Tasks/DeleteTaskDialog.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_index-DKL4b50C.js",
-      "_Button-CvWjfPce.js",
+      "_index-DerHbtK6.js",
+      "_Button-Dzg27awM.js",
       "resources/js/app.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js"
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js"
     ]
   },
   "resources/js/Pages/Tasks/EditTaskDialog.vue": {
-    "file": "assets/EditTaskDialog-DXPWADzt.js",
+    "file": "assets/EditTaskDialog-DZk-NDcV.js",
     "name": "EditTaskDialog",
     "src": "resources/js/Pages/Tasks/EditTaskDialog.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index-DKL4b50C.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
-      "_index-LB_Bmhku.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_index-DBEHcVIn.js"
+      "_index-DerHbtK6.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
+      "_index-TyAznqa5.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_index-DtHUOGeR.js"
     ]
   },
   "resources/js/Pages/Tasks/Index.vue": {
-    "file": "assets/Index-BOUhIAfs.js",
+    "file": "assets/Index-D43zb-bb.js",
     "name": "Index",
     "src": "resources/js/Pages/Tasks/Index.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_CoreLayout-CtRmCc6J.js",
+      "_CoreLayout-BRYKIU0j.js",
       "resources/js/Pages/Dashboard/NoRecordMessage.vue",
       "resources/js/Pages/Tasks/TaskCard.vue",
       "resources/js/app.js",
-      "_index-LB_Bmhku.js",
-      "_index-Apsg4YZL.js",
+      "_index-TyAznqa5.js",
+      "_index-2Eug0zuj.js",
       "resources/js/Pages/Dashboard/Sidebar.vue",
       "resources/js/Pages/Tasks/CreateTaskDialog.vue",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_Button-CvWjfPce.js",
-      "_index-DBEHcVIn.js",
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_Button-Dzg27awM.js",
+      "_index-DtHUOGeR.js",
       "resources/js/Pages/Groups/CreateGroupDialog.vue",
-      "_index-Dnbm_lj9.js",
+      "_index-DKD77b8F.js",
       "resources/js/Pages/Tags/CreateTagDialog.vue",
       "resources/js/Pages/Dashboard/Header.vue",
-      "_index-BwgfkKKz.js",
+      "_index-B93N0HL1.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
-      "_index-BFttAmFr.js",
+      "_index-AQ1KFhP7.js",
       "_differenceInCalendarDays-Bp0PEmVY.js",
       "resources/js/Pages/Tasks/DeleteTaskDialog.vue"
     ]
   },
   "resources/js/Pages/Tasks/MissedTasks.vue": {
-    "file": "assets/MissedTasks-Bf3lILLj.js",
+    "file": "assets/MissedTasks-BwYO5dI0.js",
     "name": "MissedTasks",
     "src": "resources/js/Pages/Tasks/MissedTasks.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_CoreLayout-CtRmCc6J.js",
+      "_CoreLayout-BRYKIU0j.js",
       "resources/js/Pages/Dashboard/NoRecordMessage.vue",
       "resources/js/Pages/Tasks/TaskCard.vue",
       "resources/js/app.js",
       "resources/js/Pages/Dashboard/Sidebar.vue",
       "resources/js/Pages/Tasks/CreateTaskDialog.vue",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
-      "_index-LB_Bmhku.js",
-      "_index-DBEHcVIn.js",
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
+      "_index-TyAznqa5.js",
+      "_index-DtHUOGeR.js",
       "resources/js/Pages/Groups/CreateGroupDialog.vue",
-      "_index-Dnbm_lj9.js",
+      "_index-DKD77b8F.js",
       "resources/js/Pages/Tags/CreateTagDialog.vue",
       "resources/js/Pages/Dashboard/Header.vue",
-      "_index-BwgfkKKz.js",
+      "_index-B93N0HL1.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
-      "_index-BFttAmFr.js",
+      "_index-AQ1KFhP7.js",
       "_differenceInCalendarDays-Bp0PEmVY.js",
       "resources/js/Pages/Tasks/DeleteTaskDialog.vue"
     ]
   },
   "resources/js/Pages/Tasks/PendingTasks.vue": {
-    "file": "assets/PendingTasks-Dgkks3HS.js",
+    "file": "assets/PendingTasks-D8fa04Ai.js",
     "name": "PendingTasks",
     "src": "resources/js/Pages/Tasks/PendingTasks.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_CoreLayout-CtRmCc6J.js",
+      "_CoreLayout-BRYKIU0j.js",
       "resources/js/Pages/Dashboard/NoRecordMessage.vue",
       "resources/js/Pages/Tasks/TaskCard.vue",
       "resources/js/app.js",
       "resources/js/Pages/Dashboard/Sidebar.vue",
       "resources/js/Pages/Tasks/CreateTaskDialog.vue",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
-      "_index-LB_Bmhku.js",
-      "_index-DBEHcVIn.js",
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
+      "_index-TyAznqa5.js",
+      "_index-DtHUOGeR.js",
       "resources/js/Pages/Groups/CreateGroupDialog.vue",
-      "_index-Dnbm_lj9.js",
+      "_index-DKD77b8F.js",
       "resources/js/Pages/Tags/CreateTagDialog.vue",
       "resources/js/Pages/Dashboard/Header.vue",
-      "_index-BwgfkKKz.js",
+      "_index-B93N0HL1.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
-      "_index-BFttAmFr.js",
+      "_index-AQ1KFhP7.js",
       "_differenceInCalendarDays-Bp0PEmVY.js",
       "resources/js/Pages/Tasks/DeleteTaskDialog.vue"
     ]
   },
   "resources/js/Pages/Tasks/SubTaskCard.vue": {
-    "file": "assets/SubTaskCard-DnyTfbgi.js",
+    "file": "assets/SubTaskCard-Djh1RHDj.js",
     "name": "SubTaskCard",
     "src": "resources/js/Pages/Tasks/SubTaskCard.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index-D0cC4ajB.js",
-      "_index-Apsg4YZL.js"
+      "_index-eoBlWJln.js",
+      "_index-2Eug0zuj.js"
     ]
   },
   "resources/js/Pages/Tasks/TaskCard.vue": {
-    "file": "assets/TaskCard-j6Xq-gau.js",
+    "file": "assets/TaskCard-Dy2Nzxxe.js",
     "name": "TaskCard",
     "src": "resources/js/Pages/Tasks/TaskCard.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_index-BFttAmFr.js",
-      "_index-BwgfkKKz.js",
+      "_index-AQ1KFhP7.js",
+      "_index-B93N0HL1.js",
       "resources/js/Pages/Tasks/DeleteTaskDialog.vue",
       "_differenceInCalendarDays-Bp0PEmVY.js",
-      "_index-BLMopepL.js",
-      "_index-DBEHcVIn.js",
-      "_index-DKL4b50C.js",
-      "_index-D_-uy2JS.js",
-      "_Button-CvWjfPce.js"
+      "_index-Db0TWXcE.js",
+      "_index-DtHUOGeR.js",
+      "_index-DerHbtK6.js",
+      "_index-5mnlzHN0.js",
+      "_Button-Dzg27awM.js"
     ]
   },
   "resources/js/Pages/Tasks/TaskDetails.vue": {
-    "file": "assets/TaskDetails-DCv8-a6x.js",
+    "file": "assets/TaskDetails-BPrZGFs6.js",
     "name": "TaskDetails",
     "src": "resources/js/Pages/Tasks/TaskDetails.vue",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.js",
-      "_CoreLayout-CtRmCc6J.js",
-      "_Button-CvWjfPce.js",
-      "_index-Apsg4YZL.js",
+      "_CoreLayout-BRYKIU0j.js",
+      "_Button-Dzg27awM.js",
+      "_index-2Eug0zuj.js",
       "resources/js/Pages/Tasks/SubTaskCard.vue",
       "resources/js/Pages/Dashboard/NoRecordMessage.vue",
-      "_index-BFttAmFr.js",
+      "_index-AQ1KFhP7.js",
       "resources/js/Pages/Tasks/EditTaskDialog.vue",
-      "_index-LB_Bmhku.js",
-      "_index-DKL4b50C.js",
-      "_index-D0cC4ajB.js",
-      "_index-DBEHcVIn.js",
+      "_index-TyAznqa5.js",
+      "_index-DerHbtK6.js",
+      "_index-eoBlWJln.js",
+      "_index-DtHUOGeR.js",
       "resources/js/Pages/Tags/TaskTagCard.vue",
       "resources/js/Pages/Dashboard/Sidebar.vue",
       "resources/js/Pages/Tasks/CreateTaskDialog.vue",
-      "_index-D_-uy2JS.js",
-      "_index-BLMopepL.js",
+      "_index-5mnlzHN0.js",
+      "_index-Db0TWXcE.js",
       "resources/js/Pages/Groups/CreateGroupDialog.vue",
-      "_index-Dnbm_lj9.js",
+      "_index-DKD77b8F.js",
       "resources/js/Pages/Tags/CreateTagDialog.vue",
       "resources/js/Pages/Dashboard/Header.vue",
-      "_index-BwgfkKKz.js",
+      "_index-B93N0HL1.js",
       "__plugin-vue_export-helper-DlAUqK2U.js",
       "_differenceInCalendarDays-Bp0PEmVY.js"
     ]
   },
   "resources/js/Pages/Welcome.vue": {
-    "file": "assets/Welcome-CLhxacfY.js",
+    "file": "assets/Welcome-B5N6z8Ao.js",
     "name": "Welcome",
     "src": "resources/js/Pages/Welcome.vue",
     "isDynamicEntry": true,
@@ -969,7 +969,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-CjkOLGii.js",
+    "file": "assets/app-CIvLCymv.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -1017,7 +1017,7 @@
       "resources/js/Pages/Welcome.vue"
     ],
     "css": [
-      "assets/app-BehXCbLj.css"
+      "assets/app-YeJOpNcu.css"
     ],
     "assets": [
       "assets/CriqueGrotesk-Thin-C_nlSkvH.ttf",
